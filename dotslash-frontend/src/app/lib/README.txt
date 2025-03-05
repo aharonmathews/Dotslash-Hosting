@@ -1,0 +1,1 @@
+Functions that are reused across various components need to be created here.

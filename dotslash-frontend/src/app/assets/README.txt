@@ -1,0 +1,1 @@
+Add all the assets of your component in this folder
