@@ -2,8 +2,8 @@ import sphere from '../assets/sphere.png';
 import Image from 'next/image';
 import { Unbounded } from 'next/font/google';
 
-const unbounded = Unbounded({weight: '400', style: 'normal', preload:false});
-const unboundedBold = Unbounded({weight: '700', style: 'normal', preload:false});
+const unbounded = Unbounded({weight: '400', style: 'normal', preload:false});/* 
+const unboundedBold = Unbounded({weight: '700', style: 'normal', preload:false}); */
 
 export default function Welcome ()  {
     return (
