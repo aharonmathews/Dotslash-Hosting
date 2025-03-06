@@ -7,8 +7,7 @@ export default function Home() {
     <>
       <div className="flex flex-col w-full gap-10">
         <Welcome />
-        <Countdown />
-        
+        <Countdown />     
         <Gallery/>
         <CollaborateSection />
       </div>
