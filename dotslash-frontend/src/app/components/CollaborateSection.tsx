@@ -1,7 +1,10 @@
 import { Unbounded, Noto_Sans } from 'next/font/google';
 
-const unbounded = Unbounded({ weight: '400', style: 'normal' });
-const notoSans = Noto_Sans({ weight: '400', style: 'normal' });
+
+const unbounded = Unbounded({ weight: '400', style: 'normal', preload:false });
+const notoSans = Noto_Sans({ weight: '400', style: 'normal', preload:false });
+/* const unboundedBold = Unbounded({ weight: '700', style: 'normal' }); */
+
 const CollaborateSection = () => {
     return (
         <section className="bg-black  text-white py-12 md:py-16 px-8 min-h-screen w-full flex flex-col justify-center">
