@@ -1,12 +1,14 @@
-import Collaborate from "./components/Collaborate.jsx"
-
+import Welcome from "./components/welcome";
+import Countdown from "./components/countdown";
+import CollaborateSection from "./components/CollaborateSection";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-screen w-full">
-        You can start working here
+      <div className="flex flex-col w-full gap-10">
+        <Welcome />
+        <Countdown />
+        <CollaborateSection />
       </div>
-      <Collaborate />
     </>
   );
 }
