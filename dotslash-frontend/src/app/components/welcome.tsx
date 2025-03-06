@@ -7,7 +7,7 @@ const unboundedBold = Unbounded({weight: '700', style: 'normal', preload:false})
 
 export default function Welcome ()  {
     return (
-        <div className="flex flex-col w-full ">
+        <div className="flex flex-col w-full overflow-hidden">
             <div className='flex justify-start pt-7 px-12 md:pt-10 md:px-24 -mb-3 md:-mb-10'>
                 Welcome to
                 </div>
