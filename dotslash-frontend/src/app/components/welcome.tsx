@@ -8,7 +8,11 @@ const unboundedBold = Unbounded({weight: '700', style: 'normal', preload:false})
 export default function Welcome ()  {
     return (
         <div className="flex flex-col w-full ">
+            <div className='flex justify-start pt-7 px-12 md:pt-10 md:px-24 -mb-3 md:-mb-10'>
+                Welcome to
+                </div>
             <div className='flex flex-col md:flex-row items-center justify-start md:space-x-36 pt-7 px-12 space-y-7 md:space-y-0 md:pt-10 md:px-24'>
+                
                 <div className={`text-4xl md:text-9xl text-[#D1A83A]  ${unbounded.className} leading-snug` }>
                     DotSlash 2025
 
