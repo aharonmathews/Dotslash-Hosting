@@ -15,9 +15,7 @@ const CollaborateSection = () => {
                 {/* Sponsors Card */}
                 <div className="bg-[#D1A83A] text-black p-8  rounded-lg relative group cursor-pointer h-auto md:h-96 ">
                     <h3 className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Sponsors</h3>
-                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>Lorem ipsum dolor sit amet consectetur. Ut nec gravida nulla purus. Dui lectus venenatis ut erat. Amet faucibus tincidunt ornare volutpat.
-
-                    </p>
+                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>Lorem ipsum dolor sit amet consectetur. Ut nec gravida nulla purus. Dui lectus venenatis ut erat. Amet faucibus tincidunt ornare volutpat.</p>
                     <br />
                     <br />
                     <br />
@@ -43,9 +41,8 @@ const CollaborateSection = () => {
 
                 {/* Clubs Card */}
                 <div className="bg-[#D1A83A] text-black p-8  rounded-lg relative group cursor-pointer h-auto md:h-96">
-                    <h3 className={`text-2xl md:text-3xl lg:text-4x ${unbounded.className} mb-4`}>For Clubs</h3>
-                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>Lorem ipsum dolor sit amet consectetur. Ut nec gravida nulla purus. Dui lectus venenatis ut erat. Amet faucibus tincidunt ornare volutpat.
-                    </p>
+                    <h3 className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Clubs</h3>
+                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>Lorem ipsum dolor sit amet consectetur. Ut nec gravida nulla purus. Dui lectus venenatis ut erat. Amet faucibus tincidunt ornare volutpat.</p>
                     <br />
                     <br />
                     <br />
