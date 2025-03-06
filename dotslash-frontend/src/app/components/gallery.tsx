@@ -41,7 +41,7 @@ const Gallery = () => {
           </div>
           
           {/* Center Left - Stone Face Desert */}
-          <div className="absolute w-[299px] h-[250px] left-[calc(50%-299px/2-156.5px)] bottom-[410px] overflow-hidden rounded">
+          <div className="absolute w-[299px] h-[240px] left-[calc(50%-299px/2-156.5px)] bottom-[420px] overflow-hidden rounded">
             <Image 
               src={stoneface} 
               alt="Fallen statue in desert" 
