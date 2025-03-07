@@ -4,6 +4,7 @@ import Gallery from "./components/gallery";
 import CollaborateSection from "./components/CollaborateSection";
 import Events from "./components/events";
 import Footer from "./components/footer";
+import Promo from "./components/promo";
 export default function Home() {
   return (
     <>
@@ -11,6 +12,7 @@ export default function Home() {
         <Welcome />
         <Countdown />
         <Events/>
+        <Promo/>
         <Gallery/>
         <CollaborateSection />
         <Footer />
