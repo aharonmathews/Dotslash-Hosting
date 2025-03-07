@@ -1,11 +1,12 @@
+import React from "react";
+import ShaderCanvas from "./shaderCanvas"; 
 
-import Image from "next/image"
-import countdown from "../assets/countdown.png"
+const CountDown: React.FC = () => {
+  return (
+    <main className="flex items-center justify-center min-h-screen">
+      <ShaderCanvas image="/countdown.png" />
+    </main>
+  );
+};
 
-export default function Countdown() {
-    return(
-        <div className="flex flex-col items-center justify-center h-screen w-full">
-            <Image src={countdown} alt="countdown"  priority className="h-3/6 object-cover md:object-contain md:h-auto" />
-        </div>
-    )
-}
+export default CountDown;
