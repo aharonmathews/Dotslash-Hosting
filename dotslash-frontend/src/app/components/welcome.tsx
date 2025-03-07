@@ -1,13 +1,44 @@
+"use client"
+
 import sphere from '../assets/sphere.png';
 import Image from 'next/image';
 import { Unbounded } from 'next/font/google';
+import { useEffect } from 'react';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 
 const unbounded = Unbounded({weight: '400', style: 'normal', preload:false});
 const unboundedBold = Unbounded({weight: '700', style: 'normal', preload:false});
 
+gsap.registerPlugin(ScrollTrigger);
+
+
 export default function Welcome ()  {
+
+    useEffect(() => {
+        const banner = document.querySelector('.banner');
+        
+        gsap.set(banner, {
+            xPercent:-25
+        })
+
+        gsap.to(banner, {
+            ease: 'none',
+            scrollTrigger: {
+              trigger: banner,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+              onUpdate: (self) => {
+                const scrollAmount = self.progress * 30 - 15; // -15% to +15%
+                gsap.to(banner, { xPercent: -25 + scrollAmount, ease: 'none' });
+              },
+            },
+          });
+        }, []);
+
     return (
-        <div className="flex flex-col w-full overflow-hidden">
+        <div className="flex flex-col w-full ">
             <div className='flex justify-start pt-7 px-12 md:pt-10 md:px-24 -mb-3 md:-mb-10'>
                 Welcome to
                 </div>
@@ -22,7 +53,7 @@ export default function Welcome ()  {
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi laborum corrupti blanditiis aspernatur voluptatem tempora suscipit ratione explicabo, assumenda, omnis aliquam odio impedit voluptate totam error quidem commodi similique quam?
                 </div>        
             </div>
-            <div className='relative w-full h-fit'>
+            <div className='relative w-full'>
                 <Image 
                     src={sphere} 
                     alt="sphere" 
@@ -30,9 +61,9 @@ export default function Welcome ()  {
                     priority 
                     className='relative z-10  md:px-24'
                 />
-                <div className={`text-9xl ${unbounded.className} absolute w-fit whitespace-nowrap`} 
+                <div id="banner" className={`banner text-6xl md:text-9xl ${unbounded.className} absolute w-fit whitespace-nowrap`} 
                         style={{ top: '90%', transform: 'translateY(-50%)' }}>
-                    DOTSLASH. DOTSLASH. DOTSLASH. DOTSLASH.
+                    DOTSLASH CET. DOTSLASH CET. DOTSLASH CET.
                 </div>
             </div>        
         </div>
