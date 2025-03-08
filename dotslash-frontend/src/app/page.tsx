@@ -6,6 +6,8 @@ import Events from "./components/events";
 import Footer from "./components/footer";
 import Promo from "./components/promo";
 import Tshirt from "./components/Tshirt";
+
+
 export default function Home() {
   return (
     <>
