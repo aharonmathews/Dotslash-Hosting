@@ -7,6 +7,7 @@ import image3 from "../assets/Frame 15.png";
 import orbit from "../assets/orbit.png";
 import { Unbounded, Noto_Sans } from "next/font/google";
 import gsap from "gsap";
+import Orbit from "./Orbit";
 const unbounded = Unbounded({ weight: "400", style: "normal", preload: false });
 const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
 
@@ -25,10 +26,10 @@ function Events() {
 
 
   return (
-    <div className="bg-black w-full flex justify-center relative">
+    <div className="bg-black w-full flex justify-center relative overflow-hidden">
       {/* Orbit image positioned absolutely in top right */}
-      <div className="absolute top-0 right-0 pointer-events-none z-0 opacity-30 md:opacity-100">
-        <Image
+      <div className="absolute -z-100 -top-[40%] -right-[40%] pointer-events-none z-0 opacity-30 md:opacity-100">
+        {/* <Image
           src={orbit}
           id="orbit"
           alt="orbit background"
@@ -36,7 +37,8 @@ function Events() {
           height={600}
           priority
           className="w-[300px] md:w-[600px] orbit"
-        />
+        /> */}
+        <Orbit />
       </div>
 
       <div className="max-w-7xl w-full px-4 relative z-10">
