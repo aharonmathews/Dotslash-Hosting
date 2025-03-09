@@ -30,8 +30,8 @@ export default function Welcome ()  {
               end: 'bottom top',
               scrub: true,
               onUpdate: (self) => {
-                const scrollAmount = self.progress * 30 - 15; // -15% to +15%
-                gsap.to(banner, { xPercent: -25 + scrollAmount, ease: 'none' });
+                const scrollAmount = self.progress * 25 - 10;
+                gsap.to(banner, { xPercent: -50 + scrollAmount, ease: 'none' });
               },
             },
           });
@@ -63,7 +63,7 @@ export default function Welcome ()  {
                 />
                 <div id="banner" className={`banner text-6xl md:text-9xl ${unbounded.className} absolute w-fit whitespace-nowrap`} 
                         style={{ top: '90%', transform: 'translateY(-50%)' }}>
-                    DOTSLASH CET. DOTSLASH CET. DOTSLASH CET.
+                    DOTSLASH CET. DOTSLASH CET. DOTSLASH CET. DOTSLASH CET. DOTSLASH CET.
                 </div>
             </div>        
         </div>
