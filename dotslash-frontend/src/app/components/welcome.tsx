@@ -30,7 +30,7 @@ export default function Welcome ()  {
               end: 'bottom top',
               scrub: true,
               onUpdate: (self) => {
-                const scrollAmount = self.progress * 25 - 10;
+                const scrollAmount = self.progress * 20 - 20;
                 gsap.to(banner, { xPercent: -50 + scrollAmount, ease: 'none' });
               },
             },
@@ -54,13 +54,13 @@ export default function Welcome ()  {
                 </div>        
             </div>
             <div className='relative w-full'>
-                <Image 
-                    src={sphere} 
-                    alt="sphere" 
-                    width={800} 
-                    priority 
-                    className='relative z-10  md:px-24'
-                />
+                <div className='relative w-fit'>
+                    <Image src={sphere} alt="sphere" width={800}  priority className='relative z-10  md:px-24'/>
+                    <div className="border-t-[1px] border-l-[1px] border-[#D1A83A] w-20 h-20 absolute top-10 left-10 z-20"></div>
+                    <div className="border-b-[1px] border-l-[1px] border-[#D1A83A] w-20 h-20 absolute bottom-10 left-10 z-20"></div>
+                    <div className="border-t-[1px] border-r-[1px] border-[#D1A83A] w-20 h-20 absolute top-10 right-10 z-20"></div>
+                    <div className="border-b-[1px] border-r-[1px] border-[#D1A83A] w-20 h-20 absolute bottom-10 right-10 z-20"></div>
+                </div>
                 <div id="banner" className={`banner text-6xl md:text-9xl ${unbounded.className} absolute w-fit whitespace-nowrap`} 
                         style={{ top: '90%', transform: 'translateY(-50%)' }}>
                     DOTSLASH CET. DOTSLASH CET. DOTSLASH CET. DOTSLASH CET. DOTSLASH CET.
