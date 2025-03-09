@@ -8,13 +8,23 @@ import fireface from '@/app/assets/fire-face.png'
 import blindfold from '@/app/assets/blindfold.png'
 import stoneface from '@/app/assets/stone-face-desert.png'
 import rockwall from '@/app/assets/rock-wall.png'
+import background from '@/app/assets/bg_gallery.jpeg'
 
 const Gallery = () => {
   return (
-    <div className="w-full bg-black">
+    <div className="w-full relative  ">
+       <div className="absolute inset-0 -z-10 "style={{ transform: 'translateY(-280px)', opacity:"0.44" }}>
+        <Image
+          src={background}
+          alt="Background"
+          fill
+          style={{ objectFit: 'cover' }}
+          priority 
+        />
+      </div>
       <div className="max-w-[1440px] mx-auto relative py-[169px] min-h-[1649px]">
        
-        <h1 className="font-[Unbounded] text-8xl text-white absolute left-[69px] top-[169px] hidden md:block">GALLERY</h1>
+        <h1 className="font-[Unbounded] text-8xl text-white absolute left-[69px] top-[169px] hidden md:block">GLIMPSES OF DOTSLASH &apos;23</h1>
         
         {/* Desktop Layout */}
         <div className="hidden md:block relative w-[1240px] h-[1076px] mx-auto mt-[406px]">
@@ -108,8 +118,17 @@ const Gallery = () => {
         </div>
         
         {/* Mobile Layout  */}
-        <div className="md:hidden grid grid-cols-1 gap-4 max-w-[480px] mx-auto mt-[60px] px-4">
-          <h1 className="font-[Unbounded] text-5xl text-white mb-8 mx-auto text-center">GALLERY</h1>
+        <div className="md:hidden grid grid-cols-1 gap-4 max-w-[480px] mx-auto mt-[175px] px-4">
+        <div className="absolute inset-0 -z-10 "style={{ transform: 'translateY(-1500px)', opacity:"0.44" }}>
+          <Image
+            src={background}
+            alt="Background"
+            fill
+            style={{ objectFit: 'cover' }}
+            priority 
+          />
+        </div>
+          <h1 className="font-[Unbounded] text-5xl text-white mb-8 mx-auto text-center">GLIMPSES OF DOTSLASH &apos;23</h1>
           
           <div className="relative aspect-[3/2] overflow-hidden rounded">
             <Image 
