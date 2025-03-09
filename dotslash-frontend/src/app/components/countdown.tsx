@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ShaderCanvas from "./shaderCanvas"; 
 import { Space_Mono } from "next/font/google";
 
-const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400"] });
+const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400"],preload:false });
 
 const CountDown: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
@@ -17,7 +17,6 @@ const CountDown: React.FC = () => {
     return () => {
       document.body.removeChild(script);
     };
-    ``;
   }, []);
 
   function calculateTimeLeft() {
