@@ -1,12 +1,10 @@
 "use client"
 
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import image1 from "../assets/Committee Call.png";
 import image3 from "../assets/Frame 15.png";
-import orbit from "../assets/orbit.png";
 import { Unbounded, Noto_Sans } from "next/font/google";
-import gsap from "gsap";
 import Orbit from "./Orbit";
 const unbounded = Unbounded({ weight: "400", style: "normal", preload: false });
 const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
@@ -14,21 +12,10 @@ const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
 
 
 function Events() {
-
-  useEffect(() => {  
-    gsap.to(".orbit",{
-      rotate:360,
-      repeat:0,
-      duration:5,
-      ease:'linear'
-    })
-  },[])
-
-
   return (
     <div className="bg-black w-full flex justify-center relative overflow-hidden">
       {/* Orbit image positioned absolutely in top right */}
-      <div className="absolute -z-100 -top-[40%] -right-[40%] pointer-events-none z-0 opacity-30 md:opacity-100">
+      <div className="absolute -z-100 -top-[38%] -right-[38%] pointer-events-none z-0 opacity-30 md:opacity-100">
         {/* <Image
           src={orbit}
           id="orbit"
@@ -43,16 +30,12 @@ function Events() {
 
       <div className="max-w-7xl w-full px-4 relative z-10">
         <div
-          className={`${unbounded.className} font-normal text-[45px] md:text-[90px] leading-[100%] tracking-[0%] text-white`}
+          className={`${unbounded.className} md:py-[60px] font-normal text-[45px] md:text-[90px] leading-[100%] tracking-[0%] text-white`}
         >
-          UPCOMING
+          UPCOMING<br /> EVENTS
         </div>
-        <div
-          className={`${unbounded.className} font-normal text-[45px] md:text-[90px] leading-[100%] tracking-[0%] text-white`}
-        >
-          EVENTS
-        </div>
-        <div className="flex flex-col gap-6 md:gap-12 mt-5 md:mt-10">
+
+        <div className="flex flex-col mt-5 md:mt-10">
           {/* First row */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-5 md:mt-10">
             {/* First card - reference for bigger cards */}
