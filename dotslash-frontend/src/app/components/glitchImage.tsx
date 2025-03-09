@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, JSX } from "react";
 import * as THREE from "three";
 import { useFrame, extend, useThree } from "@react-three/fiber";
 import { shaderMaterial } from "@react-three/drei";
@@ -51,18 +51,18 @@ const ImageShaderMaterial = shaderMaterial(
 
 extend({ ImageShaderMaterial });
 
-type ImageShaderMaterialImpl = JSX.IntrinsicElements["shaderMaterial"] & {
+// Define the type for your custom material's properties
+type ImageShaderMaterialProps = {
   u_texture: THREE.Texture;
   u_mouse: THREE.Vector2;
   u_prevMouse: THREE.Vector2;
   u_aberrationIntensity: number;
 };
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      imageShaderMaterial: ImageShaderMaterialImpl;
-    }
+// Update the global namespace
+declare module '@react-three/fiber' {
+  interface ThreeElements {
+    imageShaderMaterial: JSX.IntrinsicElements['meshStandardMaterial'] & ImageShaderMaterialProps;
   }
 }
 
