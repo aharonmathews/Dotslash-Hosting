@@ -1,7 +1,7 @@
 import Image from "next/image";
 import TshirtImage from "../assets/dotshirt.png";
 import Tbackground from "../assets/Tbackground.png";
-import { Unbounded} from "next/font/google";
+import { Unbounded } from "next/font/google";
 import ShaderCanvas from "./shaderCanvas";
 import HoverButton from "./HoverButton";
 

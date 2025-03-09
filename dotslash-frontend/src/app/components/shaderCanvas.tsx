@@ -10,7 +10,7 @@ interface ShaderCanvasProps {
 
 const ShaderCanvas: React.FC<ShaderCanvasProps> = (image) => {
   return (
-    <Canvas style={{ width: "100vw", height: "100vh" }}>
+    <Canvas style={{ width: "1657px", height: "658px" }}>
       <ShaderImage imageUrl={image.image} />
     </Canvas>
   );
