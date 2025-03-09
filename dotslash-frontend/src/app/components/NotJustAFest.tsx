@@ -1,10 +1,11 @@
 import React from 'react'
-import logo from "@/app/assets/logo_silver.png"
+import logo from "@/app/assets/logo.gif"
 import Image from 'next/image'
 
 const NotJustAFest = () => {
     return (
         <div className='relative flex flex-col items-center justify-center h-fit my-[100px]'>
+            <div className='w-[1054px] h-[1054px] absolute radial-gradient opacity-50'></div>
             <div className='md:w-[1216px] md:h-[1216px] flex items-center justify-center rounded-full border-[2px] border-[#D1A83A66]'>
                 <div className='w-[854px] h-[854px] flex items-center justify-center rounded-full border-[2px] border-[#D1A83A66]'>
                     <div className='w-[686px] h-[686px] flex items-center justify-center rounded-full border-[2px] border-[#D1A83AB2]'>
