@@ -4,10 +4,14 @@ import { Canvas } from "@react-three/fiber";
 import ShaderImage from "./glitchImage";
 import countdownImage from "../assets/countdown.png"
 
-const ShaderCanvas: React.FC<{ image: string }> = ({ image: string }) => {
+interface ShaderCanvasProps {
+  image: string;
+}
+
+const ShaderCanvas: React.FC<ShaderCanvasProps> = (image) => {
   return (
     <Canvas style={{ width: "100vw", height: "100vh" }}>
-      <ShaderImage imageUrl="/countdown.png" />
+      <ShaderImage imageUrl={image.image} />
     </Canvas>
   );
 };

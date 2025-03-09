@@ -2,22 +2,17 @@ import Image from "next/image";
 import TshirtImage from "../assets/tshirt.png";
 import Tbackground from "../assets/Tbackground.png";
 import { Unbounded} from "next/font/google";
+import ShaderCanvas from "./shaderCanvas";
+import HoverButton from "./HoverButton";
 
 const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Tshirt() {
   return (
     <div className="relative md:w-full h-screen inset-0 flex flex-col items-start justify-start text-white ">
-      <div className="absolute inset-0 md:px-6 md:w-full w-[600px] md:h-[800px] h-[1000px] ">
-        <Image
-          src={Tbackground}
-          alt="orbit background"
-          fill
-          priority
-          className="object-cover brightness-55 max-w-[95%] md:ml-9  "
-        />
-
-        <div className="absolute inset-0 bg-black opacity-50 "></div>
+      <div className="absolute inset-0 md:w-full w-[600px] md:h-[800px] h-[1000px] ">
+        <ShaderCanvas image="/Tbackground.png" />
+        <div className="absolute inset-0 bg-black opacity-40 "></div>
       </div>
 
       <div className="relative flex md:flex-row flex-col justify-between max-w-10xl p-6 h-full w-full pt-16 mt-20">
@@ -39,9 +34,7 @@ export default function Tshirt() {
             molestie quis morbi id sit dictum odio diam elit..
           </p>
 
-          <button className="px-12 py-3 bg-[#D1A83A] text-black font-semibold rounded-full shadow-md transition mt-10">
-            REGISTER
-          </button>
+          <HoverButton />
         </div>
 
         <div className="md:w-[30%] w-[450px] flex justify-center items-center md:mb-60 ">
