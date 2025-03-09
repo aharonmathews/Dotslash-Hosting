@@ -17,7 +17,7 @@ const Orbit = () => {
         end:"bottom top",
         scrub:true,
         onUpdate: (self)=>{
-          const scrollAmount =60 - self.progress * 150;
+          const scrollAmount = (60 - self.progress * 150)%360;
           gsap.to(".orbit",{
             rotation:scrollAmount,
             ease:'none'
