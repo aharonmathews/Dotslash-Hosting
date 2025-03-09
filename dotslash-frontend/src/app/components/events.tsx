@@ -6,6 +6,7 @@ import image1 from "../assets/Committee Call.png";
 import image3 from "../assets/Frame 15.png";
 import { Unbounded, Noto_Sans } from "next/font/google";
 import Orbit from "./Orbit";
+import HoverButton from "./HoverButton";
 const unbounded = Unbounded({ weight: "400", style: "normal", preload: false });
 const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
 
@@ -87,15 +88,7 @@ function Events() {
                     className="w-16 h-20 md:w-20 md:h-24"
                     priority
                   />
-                    <div className="h-[40px] md:h-[50px] w-[150px] md:w-[205px] bg-[#D1A83A] rounded-[45px] flex justify-center items-center md:mt-10">
-                  <a href="">
-                      <span
-                        className={`text-black ${unbounded.className} text-xs md:text-sm`}
-                      >
-                        REGISTER
-                      </span>
-                  </a>
-                    </div>
+                  <HoverButton small={true}/>
                 </div>
               </div>
             </div>
@@ -130,15 +123,7 @@ function Events() {
                     className="w-16 h-20 md:w-20 md:h-24"
                     priority
                   />
-                  <div className="h-[40px] md:h-[50px] w-[120px] md:w-[165px] bg-[#D1A83A] rounded-[45px] flex justify-center items-center md:mt-10">
-                    <a href="">
-                      <span
-                        className={`text-black ${unbounded.className} text-xs md:text-sm`}
-                      >
-                        REGISTER
-                      </span>
-                    </a>
-                  </div>
+                  <HoverButton small={true}/>
                 </div>
               </div>
             </div>
@@ -176,15 +161,7 @@ function Events() {
                     className="w-16 h-20 md:w-20 md:h-24"
                     priority
                   />
-                  <div className="h-[40px] md:h-[50px] w-[120px] md:w-[165px] bg-[#D1A83A] rounded-[45px] flex justify-center items-center md:mt-10">
-                    <a href="">
-                      <span
-                        className={`text-black ${unbounded.className} text-xs md:text-sm`}
-                      >
-                        REGISTER
-                      </span>
-                    </a>
-                  </div>
+                  <HoverButton small={true}/>
                 </div>
               </div>
             </div>
@@ -227,15 +204,7 @@ function Events() {
                     className="w-16 h-20 md:w-20 md:h-24"
                     priority
                   />
-                  <div className="h-[40px] md:h-[50px] w-[150px] md:w-[205px] bg-[#D1A83A] rounded-[45px] flex justify-center items-center md:mt-10">
-                    <a href="">
-                      <span
-                        className={`text-black ${unbounded.className} text-xs md:text-sm`}
-                      >
-                        REGISTER
-                      </span>
-                    </a>
-                  </div>
+                  <HoverButton small={true}/>
                 </div>
               </div>
             </div>
@@ -277,15 +246,7 @@ function Events() {
                       className="w-16 h-20 md:w-20 md:h-24"
                       priority
                     />
-                    <div className="h-[40px] md:h-[50px] w-[120px] md:w-[165px] bg-[#D1A83A] rounded-[45px] flex justify-center items-center md:mt-10">
-                      <a href="">
-                        <span
-                          className={`text-black ${unbounded.className} text-xs md:text-sm`}
-                        >
-                          REGISTER
-                        </span>
-                      </a>
-                    </div>
+                    <HoverButton small={true}/>
                   </div>
                 </div>
               </div>
