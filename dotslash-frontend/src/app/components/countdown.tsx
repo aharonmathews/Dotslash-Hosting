@@ -1,14 +1,30 @@
 "use client"
-import React, { useEffect, useState } from "react";
-import ShaderCanvas from "./shaderCanvas"; 
-import { Space_Mono } from "next/font/google";
 
-const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400"] });
+import React, { useEffect, useState } from "react";
+import { Space_Mono } from "next/font/google";
+import dynamic from "next/dynamic";
+
+// Use dynamic import with no SSR for the ShaderCanvas component
+const ShaderCanvas = dynamic(() => import("./shaderCanvas"), { ssr: false });
+
+// Font loading fixed
+const spaceMono = Space_Mono({ 
+  subsets: ["latin"], 
+  weight: ["400"]
+});
+
+interface TimeLeft {
+  days?: string;
+  hours?: string;
+  minutes?: string;
+  seconds?: string;
+}
 
 const CountDown: React.FC = () => {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({});
 
-  React.useEffect(() => {
+  // Devfolio script loading
+  useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://apply.devfolio.co/v2/sdk.js";
     script.async = true;
@@ -17,12 +33,11 @@ const CountDown: React.FC = () => {
     return () => {
       document.body.removeChild(script);
     };
-    ``;
   }, []);
 
-  function calculateTimeLeft() {
+  function calculateTimeLeft(): TimeLeft {
     const difference = +new Date("2025-03-26T17:00:00") - +new Date();
-    let timeLeft = {};
+    let timeLeft: TimeLeft = {};
 
     if (difference > 0) {
       timeLeft = {
@@ -42,12 +57,14 @@ const CountDown: React.FC = () => {
     }
     return timeLeft;
   }
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
     return () => clearTimeout(timer);
-  });
+  }, [timeLeft]); // Added timeLeft as dependency to ensure timer updates correctly
+
   return (
     <main className="relative flex items-center justify-center h-[658px]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -60,7 +77,9 @@ const CountDown: React.FC = () => {
       <p className="absolute bottom-7 left-10">REBOOTING...</p>
       <div className="absolute bottom-7 right-10 flex flex-col items-end">
         <p className="mb-1 text-sm opacity-80">RESTARTING IN:</p>
-        <h3 className={`${spaceMono.className} text-5xl`}>{timeLeft.days}:{timeLeft.hours}:{timeLeft.minutes}:{timeLeft.seconds}</h3>
+        <h3 className={spaceMono.className}>
+          {timeLeft.days || "00"}:{timeLeft.hours || "00"}:{timeLeft.minutes || "00"}:{timeLeft.seconds || "00"}
+        </h3>
       </div>
     </main>
   );

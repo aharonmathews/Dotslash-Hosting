@@ -34,7 +34,7 @@ export default function Tshirt() {
             molestie quis morbi id sit dictum odio diam elit..
           </p>
 
-          <HoverButton />
+          <HoverButton small={false}/>
         </div>
 
         <div className="md:w-[45%] w-[450px] flex justify-center absolute max-sm:top-[550px] max-sm:right-[50vw] max-sm:translate-x-1/2 right-0 top-1/2 -translate-y-1/2 md:mb-60 ">

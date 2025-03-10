@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import logo from "@/app/assets/logo.gif"
 import dsolve from "@/app/assets/DSolve.png"
@@ -36,7 +37,7 @@ const NotJustAFest = () => {
                         <div className='w-[582px] h-[582px] flex items-center justify-center rounded-full border-[2px] border-[#D1A83A]'>
                             <div className='w-[486px] h-[486px] flex items-center justify-center rounded-full border-[2px] border-[#D1A83A]'>
                                 <div className='w-[366px] h-[366px] flex items-center justify-center rounded-full border-[2px] border-[#D1A83A]'>
-                                    <Image src={logo} alt="DotSlash Logo"/>
+                                    <Image src={logo} alt="DotSlash Logo" unoptimized/>
                                 </div>
                             </div>
                         </div>
