@@ -47,7 +47,7 @@ const Gallery = () => {
                 alt="Cosmic portal with person standing"
                 fill
                 style={{ objectFit: 'cover' }}
-                className="scale-110 hover:scale-[115%] transition-transform duration-300 ease-in-out"
+                className="scale-110 hover:scale-[105%] -translate-y-5 transition-transform duration-300 ease-in-out"
               />
             </motion.div>
           </div>
@@ -60,7 +60,7 @@ const Gallery = () => {
                 alt="Glowing crater"
                 fill
                 style={{ objectFit: 'cover' }}
-                className="scale-110 hover:scale-[115%] transition-transform duration-300 ease-in-out"
+                className="scale-110 hover:scale-[105%] transition-transform duration-300 ease-in-out"
               />
             </motion.div>
           </div>
@@ -73,7 +73,7 @@ const Gallery = () => {
                 alt="Fallen statue in desert"
                 fill
                 style={{ objectFit: 'cover' }}
-                className="scale-[120%] hover:scale-125 -translate-y-14  transition-transform duration-300 ease-in-out"
+                className="scale-[120%] hover:scale-110 -translate-y-14  transition-transform duration-300 ease-in-out"
               />
             </motion.div>
           </div>
@@ -86,7 +86,7 @@ const Gallery = () => {
                 alt="Desert sunset landscape"
                 fill
                 style={{ objectFit: 'cover' }}
-                className="scale-[115%] hover:scale-[115%] -translate-y-5  transition-transform duration-300 ease-in-out"
+                className="scale-[115%] hover:scale-[105%] -translate-y-10  transition-transform duration-300 ease-in-out"
               />
             </motion.div>
           </div>
@@ -99,7 +99,7 @@ const Gallery = () => {
                 alt="Crowned statue"
                 fill
                 style={{ objectFit: 'cover' }}
-                className="scale-110 hover:scale-[115%] -translate-y-14  transition-transform duration-300 ease-in-out"
+                className="scale-[115%] hover:scale-[105%] -translate-y-20  transition-transform duration-300 ease-in-out"
               />
             </motion.div>
           </div>
@@ -125,7 +125,7 @@ const Gallery = () => {
                 alt="Ancient stone masks along a wall"
                 fill
                 style={{ objectFit: 'cover' }}
-                className="scale-110 hover:scale-[115%] -translate-y-24  transition-transform duration-300 ease-in-out"
+                className="scale-110 hover:scale-[105%] -translate-y-24  transition-transform duration-300 ease-in-out"
               />
             </motion.div>
           </div>
@@ -138,7 +138,7 @@ const Gallery = () => {
                 alt="Face with glowing cracks"
                 fill
                 style={{ objectFit: 'cover' }}
-                className="scale-110 hover:scale-[115%] -translate-y-20 transition-transform duration-300 ease-in-out"
+                className="scale-[115%] hover:scale-[105%] -translate-y-20 transition-transform duration-300 ease-in-out"
               />
             </motion.div>
           </div>
