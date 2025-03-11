@@ -145,8 +145,8 @@ const Gallery = () => {
         </div>
         
         {/* Mobile Layout  */}
-        <div className="md:hidden grid grid-cols-1 gap-4 max-w-[480px] mx-auto mt-[175px] px-4">
-        <div className="absolute inset-0 -z-10 "style={{ transform: 'translateY(-1500px)', opacity:"0.44" }}>
+        <div className="md:hidden grid grid-cols-1 gap-4 max-w-[480px] mx-auto mt-[150px] px-4">
+        <div className="absolute inset-0 -z-5 "style={{ transform: 'translateY(-1450px)', opacity:"0.50" }}>
           <Image
             src={background}
             alt="Background"
@@ -155,7 +155,7 @@ const Gallery = () => {
             priority 
           />
         </div>
-          <h1 className="font-[Unbounded] text-5xl text-white mb-8 mx-auto text-center">GLIMPSES OF DOTSLASH &apos;23</h1>
+          <h1 className="font-[Unbounded] text-5xl text-white mb-8 mx-auto z-10 text-center">GLIMPSES OF DOTSLASH &apos;23</h1>
           
           <div className="relative aspect-[3/2] overflow-hidden rounded">
             <div>
