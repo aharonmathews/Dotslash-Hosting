@@ -60,7 +60,7 @@ export default function Welcome() {
     }, []);
 
     return (
-        <div className="flex flex-col w-full">
+        <div id="home" className="flex flex-col w-full">
             <div className='flex justify-start pt-7 px-12 md:pt-10 md:px-24 -mb-3 md:-mb-10'>
                 Welcome to
             </div>

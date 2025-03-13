@@ -15,14 +15,14 @@ const Footer = () => {
             <Image src={dotslash} alt="dotslash"/>
             <div className='flex flex-wrap md:flex-row gap-x-[80px] gap-y-[48px] lg:gap-x-[143px] mb-5'>
                 <div className={`flex flex-col gap-[16px]  text-[16px] ${notoSans.className}`}>
-                    <p>Home</p>
-                    <p>Events</p>
-                    <p>Gallery</p>
+                    <a href='#home'>Home</a>
+                    <a href='#events'>Events</a>
+                    <a href='#gallery'>Gallery</a>
                 </div>
                 <div className={`flex flex-col gap-[16px]  text-[16px] ${notoSans.className}`}>
-                    <p>For Clubs</p>
-                    <p>For Sponsors</p>
-                    <p>Get T-Shirt</p>
+                    <a href='#collaboration' >For Clubs</a>
+                    <a href='#collaboration'>For Sponsors</a>
+                    <a href='#tshirt'>Get T-Shirt</a>
                 </div>
                 <div>
                     Contact:
