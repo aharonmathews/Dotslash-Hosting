@@ -5,6 +5,7 @@ import { Unbounded, Noto_Sans } from "next/font/google";
 import Orbit from "./Orbit";
 import EventCard, { EventData } from "../lib/EventCard";
 import { client } from "../../sanity/client"; // Adjust the path as needed
+import HoverButton from "./HoverButton";
 
 const unbounded = Unbounded({ weight: "400", style: "normal", preload: false });
 const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
@@ -192,6 +193,7 @@ function Events() {
           UPCOMING<br /> EVENTS
         </div>
 
+        {/* Events grid */}
         <div className="flex flex-col mt-5 md:mt-10">
           {/* First row */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-5 md:mt-10">
@@ -223,6 +225,10 @@ function Events() {
             ))}
           </div>
         </div>
+
+      <div className="flex flex-col justify-center items-center w-full mt-[36px] font-unbounded">
+        <HoverButton url="/events" small={false} text="SHOW MORE" invert={true}/>
+      </div>
       </div>
     </div>
   );
