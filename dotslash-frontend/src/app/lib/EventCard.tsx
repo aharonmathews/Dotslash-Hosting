@@ -14,7 +14,7 @@ const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
 export interface EventData {
   _id: string;
   title: string;
-  description: string | PortableTextBlock; // Can be PortableText array or string
+  description: any; // Can be PortableText array or string
   date: string;
   poster?: {
     asset: {
@@ -100,7 +100,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
             {isPortableText ? (
               <div className="min-h-[130px] max-h-[140px] overflow-hidden relative">
               <div className="line-clamp-5">
-                <PortableText value={event.description} />
+                <PortableText value={event.description as PortableTextBlock[]} />
               </div>
               <div className="absolute bottom-0 right-0 w-full h-8 bg-gradient-to-t from-black to-transparent"></div>
             </div>
