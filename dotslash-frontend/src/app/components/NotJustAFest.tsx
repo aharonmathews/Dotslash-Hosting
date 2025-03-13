@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import logo from "@/app/assets/logo.gif";
 import dsolve from "@/app/assets/DSolve.png";
