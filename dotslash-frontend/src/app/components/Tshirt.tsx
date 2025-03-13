@@ -9,7 +9,7 @@ const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Tshirt() {
   return (
-    <div className="relative z-10 md:w-full h-screen inset-0 flex flex-col items-start justify-start text-white ">
+    <div id="tshirt" className="relative z-10 md:w-full h-screen inset-0 flex flex-col items-start justify-start text-white ">
       <div className="absolute inset-0 md:w-full w-[600px] md:h-[800px] h-[1000px] ">
         <ShaderCanvas image="/Tbackground.png" />
         <div className="absolute inset-0 w-screen bg-black opacity-40 "></div>

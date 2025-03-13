@@ -23,7 +23,7 @@ const Gallery = () => {
   
   const y = useTransform(scrollYProgress, [0, 1], ["-10vh", "12vh"], { ease: cubicBezier(0.17, 0.67, 0.83, 0.67) })
   return (
-    <div className="w-full relative  ">
+    <div id="gallery" className="w-full relative  ">
        <div className="absolute inset-0 -z-1 "style={{ transform: 'translateY(-280px)', opacity:"0.44" }}>
         <Image
           src={background}

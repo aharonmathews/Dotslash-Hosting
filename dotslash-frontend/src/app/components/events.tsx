@@ -180,7 +180,7 @@ function Events() {
   }
 
   return (
-    <div className="bg-black w-full flex justify-center relative overflow-hidden">
+    <div id="events" className="bg-black w-full flex justify-center relative overflow-hidden">
       {/* Orbit image positioned absolutely in top right */}
       <div className="absolute -z-100 -top-[38%] -right-[38%] pointer-events-none z-0 opacity-30 md:opacity-100">
         <Orbit />
