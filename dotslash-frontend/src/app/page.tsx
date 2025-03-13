@@ -6,6 +6,7 @@ import Events from "./components/events";
 import Footer from "./components/footer";
 import Tshirt from "./components/Tshirt";
 import NotJustAFest from "./components/NotJustAFest";
+import Navbar from "./components/navbar";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
     <>
       <div className="flex flex-col w-full gap-10 overflow-hidden bg-black">
         
+        <Navbar/>
         <Welcome />
         <Countdown />
         <Events />
