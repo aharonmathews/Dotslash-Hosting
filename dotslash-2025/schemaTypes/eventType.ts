@@ -6,41 +6,50 @@ export const eventType = defineType({
     type:"document",
     fields:[
         defineField({
-            name:"Title",
+            name:"title",
+            title:"Event Name",
             type:"string",
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name:"Description",
-            type:"string",
+            name:"description",
+            title:"Event Content",
+            type: "array", 
+            of: [{type: "block"}],
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name:"Date",
+            name:"date",
+            title:"Start Date",
             type:"date",
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name:"Poster",
+            name:"poster",
+            title:"Event Poster",
             type:"image",
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name:"Registration_Link",
+            name:"link",
+            title:"Registration Link",
+            description:"Enter the URL. Leave empty if no registration is required.",
             type:"url",
-            validation: (rule) => rule.required(),
         }),
         defineField({
-            name:"Featured",
+            name:"featured",
+            title:"Is it a Featured Event?",
+            description:"Add featured tag to event",
             type:"boolean",
             validation: (rule) => rule.required(),
-            description:"Add featured tag to event"
+            initialValue:false,
         }),
         defineField({
-            name:"Large",
+            name:"large",
+            title:"Display the event in with / without poster in home page?",
             type:"boolean",
             validation: (rule) => rule.required(),
-            description:"Display the event along with poster in home page"
+            initialValue:false,
         }),
     ]
 });
