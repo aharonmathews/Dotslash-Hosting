@@ -5,7 +5,7 @@ import Image from "next/image";
 import image1 from "../assets/Committee Call.png";
 import { Unbounded, Noto_Sans } from "next/font/google";
 import HoverButton from "../components/HoverButton";
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextBlock } from "@portabletext/react";
 
 const unbounded = Unbounded({ weight: "400", style: "normal", preload: false });
 const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
@@ -14,7 +14,7 @@ const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
 export interface EventData {
   _id: string;
   title: string;
-  description: any; // Can be PortableText array or string
+  description: string | PortableTextBlock; // Can be PortableText array or string
   date: string;
   poster?: {
     asset: {
@@ -66,7 +66,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
   // Large card layout (positions 0 and 3)
   if (layout === "large") {
     return (
-      <div className="w-full md:w-[800px] h-auto md:h-[380px] bg-black border border-[#D1A83A] rounded-md p-4 md:pt-5 md:pl-4 flex flex-col md:flex-row relative">
+      <div className={`w-full md:w-[800px] h-auto md:h-[380px] bg-black border ${event.featured?`border-[#D1A83A]`:`border-[#414141]`} rounded-md p-4 md:pt-5 md:px-4 flex flex-col md:flex-row relative`}>
         {/* Featured tag */}
         {event.featured && (
           <div className="absolute -top-4 right-4 md:right-40">
@@ -79,7 +79,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
         )}
 
         {/* Show poster if large=true */}
-        {(event.large || event.featured) && (
+        {/* (event.large || event.featured) && */ (
           <div className="w-full md:w-[280px] h-[220px] md:h-[330px] bg-black border border-gray-500 rounded-md mx-auto md:mx-0">
             <Image
               src={posterUrl || image1}
@@ -93,10 +93,10 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
         )}
         
         <div className="flex flex-col w-full md:w-[500px] mt-4 md:mt-0">
-          <div className={`text-[#D1A83A] ${unbounded.className} pl-2 md:pl-6 pt-4 md:pt-8 text-xl md:text-2xl`}>
+          <div className={`text-[#D1A83A] ${unbounded.className} px-2 md:px-6 pt-4 md:pt-8 text-xl md:text-2xl`}>
             {event.title}
           </div>
-          <div className={`text-white ${noto_sans.className} pl-2 md:pl-6 pt-2 md:pt-4 text-sm flex flex-col gap-2 md:gap-4`}>
+          <div className={`text-white ${noto_sans.className} px-2 md:px-6 pt-2 md:pt-4 text-sm flex flex-col gap-2 md:gap-4`}>
             {isPortableText ? (
               <div className="min-h-[130px] max-h-[140px] overflow-hidden relative">
               <div className="line-clamp-5">
@@ -119,7 +119,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
               </>
             )}
           </div>
-          <div className={`text-white ${noto_sans.className} pl-2 md:pl-8 pt-3 md:pt-4 text-sm flex flex-row justify-between md:justify-start md:gap-40`}>
+          <div className={`text-white ${noto_sans.className} px-2 md:px-4 text-sm flex flex-row justify-between md:justify-start md:gap-40`}>
             <div className="flex flex-col items-center justify-center w-[93px] h-[107px] p-0">
               <p className={`${unbounded.className} font-[500] text-[48px] w-[74px] h-[35px] text-[#D1A83A]`}>{day}</p>
               <p className="font-[400] text-[16px] leading-snug">{month}, {year}</p>
@@ -133,7 +133,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
   } else {
     // Small card layout (positions 1, 2, 4, 5, 6)
     return (
-      <div className="w-full md:w-[420px] h-auto md:h-[380px] bg-black border border-[#D1A83A] rounded-md p-4 md:p-0 relative">
+      <div className={`w-full md:w-[420px] h-auto md:h-[380px] bg-black border ${event.featured?`border-[#D1A83A]`:`border-[#414141]`} rounded-md p-4 md:p-0 relative`}>
         {/* Featured tag */}
         {event.featured && (
           <div className="absolute -top-4 right-4 md:right-20">
@@ -145,10 +145,10 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
           </div>
         )}
         <div className="flex flex-col w-full md:w-[400px]">
-          <div className={`text-white ${unbounded.className} pl-2 md:pl-8 pt-2 md:pt-8 text-xl md:text-2xl`}>
+          <div className={`text-white ${unbounded.className} px-2 md:px-4 pt-2 md:pt-8 text-xl md:text-2xl`}>
             {event.title}
           </div>
-          <div className={`text-white ${noto_sans.className} pl-2 md:pl-8 pt-2 md:pt-4 text-sm flex flex-col gap-2 md:gap-4`}>
+          <div className={`text-white ${noto_sans.className} px-2 md:px-4 pt-2 md:pt-4 text-sm flex flex-col gap-2 md:gap-4`}>
             {isPortableText ? (
               <div className="min-h-[100px] max-h-[110px] overflow-hidden relative">
               <div className="line-clamp-6">
@@ -171,7 +171,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
               </>
             )}
           </div>
-          <div className={`text-white ${noto_sans.className} pl-2 md:pl-8 pt-4 md:pt-9 text-sm flex flex-row justify-between md:justify-start md:gap-24`}>
+          <div className={`text-white ${noto_sans.className} px-2 md:px-4 pt-4 md:pt-9 text-sm flex flex-row justify-between md:justify-start md:gap-24`}>
             <div className="flex flex-col items-center justify-center w-[93px] h-[107px] p-0">
               <p className={`${unbounded.className} font-[500] text-[48px] w-[74px] h-[35px] text-[#D1A83A]`}>{day}</p>
               <p className="font-[400] text-[16px] leading-snug">{month}, {year}</p>
