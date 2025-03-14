@@ -10,7 +10,7 @@ const unbounded = Unbounded({ weight: "400", style: "normal", preload: false });
 const EventsPage = () => {
   const [events, setEvents] = useState<EventData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  
+
   useEffect(() => {
     async function fetchEvents() {
       try {
@@ -25,28 +25,28 @@ const EventsPage = () => {
           featured,
           large
         }`;
-        
+
         const data = await client.fetch<EventData[]>(query);
-        
+
         if (data && data.length > 0) {
           // Add isSanityData flag to all events
           const processedData = data.map(event => ({
             ...event,
             isSanityData: true
           }));
-          
+
           // Sort events: featured first, then by date (newest first)
           const sortedEvents = processedData.sort((a, b) => {
             // First sort by featured status
             if (a.featured && !b.featured) return -1;
             if (!a.featured && b.featured) return 1;
-            
+
             // Then sort by date (newest first)
             const dateA = new Date(a.date);
             const dateB = new Date(b.date);
             return dateB.getTime() - dateA.getTime();
           });
-          
+
           setEvents(sortedEvents);
         } else {
           setEvents([]);
@@ -86,22 +86,22 @@ const EventsPage = () => {
 
   return (
     <div className="bg-black min-h-screen px-4 py-20">
-        <div className='flex flex-col items-center justify-center'>
-            <div className={`${unbounded.className} text-4xl md:text-6xl text-[#D1A83A] mb-12`}>
-            EVENTS
-            </div>
+      <div className='flex flex-col items-center justify-center'>
+        <div className={`${unbounded.className} text-4xl md:text-6xl text-[#D1A83A] mb-12`}>
+          EVENTS
+        </div>
 
-            <div className="flex flex-col gap-8 md:gap-10">
-            {events.map((event) => (
-                <EventCard 
-                key={event._id} 
-                event={event} 
-                layout="large" 
-                />
-                ))}
-            </div>
+        <div className="flex flex-col gap-8 md:gap-10">
+          {events.map((event) => (
+            <EventCard
+              key={event._id}
+              event={event}
+              layout="large"
+            />
+          ))}
         </div>
       </div>
+    </div>
   );
 };
 

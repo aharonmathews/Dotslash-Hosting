@@ -32,9 +32,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:title" content="DotSlash 2025" />
         <meta property="og:description" content="The official website for DotSlash 2025, the techno-cultural fest of CSE CET" />
-        <meta property="og:image" content="/cardImage.webp" />
+        <meta property="og:image" content="https://i.postimg.cc/SjGWv71h/card-Image.jpg" />
         <meta property="og:url" content="https://www.dotslashcet.in" />
-        <meta name="twitter:card" content="/cardImage.webp" />
+        <meta name="twitter:card" content="https://i.postimg.cc/SjGWv71h/card-Image.jpg" />
       </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

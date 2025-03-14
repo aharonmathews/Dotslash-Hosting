@@ -9,7 +9,7 @@ const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Tshirt() {
   return (
-    <div id="tshirt" className="relative z-10 md:w-full h-screen inset-0 flex flex-col items-start justify-start text-white ">
+    <div id="tshirt" className="relative z-10 md:w-full h-screen inset-0 flex flex-col items-start justify-start text-white">
       <div className="absolute left-1/2 -translate-x-1/2 inset-0 md:w-full w-[600px] md:h-[800px] h-[1000px] ">
         <ShaderCanvas image="/Tbackground.png" />
         <div className="absolute inset-0 w-screen bg-black opacity-40 "></div>
@@ -22,7 +22,7 @@ export default function Tshirt() {
             <span className="md:mt-5 block">TEES</span>
           </h1>
 
-          <p className="text-slate-200 text-sm lg:text-base leading-relaxed mt-4 md:mt-10  md:w-[43%] w-[350px]">
+          <p className="text-slate-200 text-sm lg:text-base leading-relaxed mt-4  md:w-[43%] w-[350px]">
             Lorem ipsum dolor sit amet consectetur. Ut nec gravida nulla justo.
             Dui lectus venenatis ut nisl. Ut eu vivamus turpis commodo vitae
             viverra.. Auctor vel ut sagittis viverra. Sollicitudin interdum amet
