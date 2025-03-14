@@ -9,7 +9,7 @@ const noto = Noto_Sans({ subsets: ["latin"], weight: ["400"] });
 
 const NotJustAFest = () => {
   return (
-    <div className="relative flex flex-col items-center justify-center h-fit my-[100px]">
+    <div className="z-[100] relative flex flex-col items-center justify-center h-fit my-[100px]">
       <div className="w-[1054px] h-[1054px] absolute radial-gradient opacity-50"></div>
       <div className="absolute font-unbounded w-[140px] md:w-[186px] rounded-lg py-1 px-1 md:px-4 top-[105px] md:top-1/4 left-12 md:left-[30%] bg-white/5 border border-slate-700 backdrop-blur-lg z-20">
         <p className="text-xs md:text-base">Panel Discussions</p>
