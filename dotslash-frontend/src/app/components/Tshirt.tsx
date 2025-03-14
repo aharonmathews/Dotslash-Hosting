@@ -10,12 +10,12 @@ const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 export default function Tshirt() {
   return (
     <div id="tshirt" className="relative z-10 md:w-full h-screen inset-0 flex flex-col items-start justify-start text-white">
-      <div className="absolute inset-0 md:w-full w-[600px] md:h-[800px] h-[1000px] ">
+      <div className="absolute left-1/2 -translate-x-1/2 inset-0 md:w-full w-[600px] md:h-[800px] h-[1000px] ">
         <ShaderCanvas image="/Tbackground.png" />
         <div className="absolute inset-0 w-screen bg-black opacity-40 "></div>
       </div>
 
-      <div className="relative flex md:flex-row flex-col justify-between max-sm:py-0 px-6 h-full w-full pt-16 mt-7 md:mt-10">
+      <div className="relative flex md:flex-row flex-col justify-between max-sm:py-0 p-6 h-full w-full pt-12 mt-7 md:mt-12">
         <div className="text-left mb-10  md:ml-10 md:pl-10 h-full">
           <h1 className={`md:text-6xl xl:text-8xl text-4xl ${unbounded.className} mb-5`}>
             GRAB YOUR <br />
