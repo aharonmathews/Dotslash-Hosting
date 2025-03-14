@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +15,20 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "DotSlash 2025",
   description: "The official website for DotSlash 2025, the techno-cultural fest of CSE CET",
-
+  openGraph: {
+    title: "DotSlash 2025",
+    description: "The official website for DotSlash 2025, the techno-cultural fest of CSE CET",
+    url: "https://dotslashcet.in/", // Choose your primary URL here
+    type: "website",
+    images: "https://i.postimg.cc/qBPjg18z/card-Image.jpg",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DotSlash 2025",
+    description: "The official website for DotSlash 2025, the techno-cultural fest of CSE CET",
+    images: "https://i.postimg.cc/qBPjg18z/card-Image.jpg",
+    site: "dotslashcet.in",
+  },
 };
 
 export default function RootLayout({
@@ -26,16 +38,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="The official website for DotSlash 2025, the techno-cultural fest of CSE CET" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="DotSlash 2025" />
-        <meta property="og:description" content="The official website for DotSlash 2025, the techno-cultural fest of CSE CET" />
-        <meta property="og:image" content="https://i.postimg.cc/SjGWv71h/card-Image.jpg" />
-        <meta property="og:url" content="https://www.dotslashcet.in" />
-        <meta name="twitter:card" content="https://i.postimg.cc/SjGWv71h/card-Image.jpg" />
-      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
