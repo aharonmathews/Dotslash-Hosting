@@ -29,12 +29,26 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="The official website for DotSlash 2025, the techno-cultural fest of CSE CET" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="og:url" content="https://dot-slash-website-2025.vercel.app/" />
+        <meta property="og:url" content="https://dotslashcet.in/" />
+        <meta property="og:url" content="http://dotslash.cet.ac.in/" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="DotSlash 2025" />
         <meta property="og:description" content="The official website for DotSlash 2025, the techno-cultural fest of CSE CET" />
-        <meta property="og:image" content="https://i.postimg.cc/SjGWv71h/card-Image.jpg" />
-        <meta property="og:url" content="https://www.dotslashcet.in" />
-        <meta name="twitter:card" content="https://i.postimg.cc/SjGWv71h/card-Image.jpg" />
+        <meta property="og:image" content="https://i.postimg.cc/qBPjg18z/card-Image.jpg" />
+
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="dot-slash-website-2025.vercel.app" />
+        <meta property="twitter:domain" content="dotslashcet.in" />
+        <meta property="twitter:domain" content="dotslash.cet.ac.in" />
+        <meta property="twitter:url" content="https://dot-slash-website-2025.vercel.app/" />
+        <meta property="twitter:url" content="https://dotslashcet.in/" />
+        <meta property="twitter:url" content="http://dotslash.cet.ac.in/" />
+        <meta name="twitter:title" content="DotSlash 2025" />
+        <meta name="twitter:description" content="The official website for DotSlash 2025, the techno-cultural fest of CSE CET" />
+        <meta name="twitter:image" content="https://i.postimg.cc/qBPjg18z/card-Image.jpg" />
       </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
