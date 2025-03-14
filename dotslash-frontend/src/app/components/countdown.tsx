@@ -77,7 +77,7 @@ const CountDown: React.FC = () => {
       <p className="absolute bottom-7 left-10">REBOOTING...</p>
       <div className="absolute bottom-7 right-10 flex flex-col items-end">
         <p className="mb-1 text-sm opacity-80">RESTARTING IN:</p>
-        <h3 className={spaceMono.className}>
+        <h3 className={`${spaceMono.className} text-5xl`}>
           {timeLeft.days || "00"}:{timeLeft.hours || "00"}:{timeLeft.minutes || "00"}:{timeLeft.seconds || "00"}
         </h3>
       </div>
