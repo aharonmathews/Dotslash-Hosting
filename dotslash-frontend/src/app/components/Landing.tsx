@@ -9,7 +9,7 @@ const Landing = () => {
         <Image
           src={landing}
           alt="Landing"
-          className="responsive-image"
+          className="responsive-image mt-20 pt-5 w-[95%] mx-auto "
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority
           style={{
