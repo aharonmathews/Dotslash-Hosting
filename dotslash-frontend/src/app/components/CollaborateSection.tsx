@@ -10,7 +10,7 @@ const CollaborateSection = () => {
         <section id="collaboration" className="bg-black  text-white py-12 md:py-16 px-8 min-h-screen w-full flex flex-col justify-center">
             {/* Headline */}
             <div className="mb-16">
-                <h2 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl  ${unbounded.className} uppercase mb-8 lg:mb-12 2xl:pl-16`}>COLLABORATE<br />WITH US</h2>
+                <h2 className={`text-4xl md:text-7xl lg:text-8xl  ${unbounded.className} uppercase mb-8 lg:mb-12 2xl:pl-16`}>COLLABORATE<br />WITH US</h2>
             </div>
 
             {/* Two-column cards */}

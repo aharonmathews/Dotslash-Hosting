@@ -34,14 +34,11 @@ export default function Welcome() {
                 end:endPosition,
                 onUpdate: (self) => {
                     direction = self.direction * -1;
-                    
-                    // Debug for desktop
-                    // console.log("Direction:", direction, "Progress:", self.progress);
                 },
-                invalidateOnRefresh: true, // Important for window resize
-                markers: false // Set to true to debug
+                invalidateOnRefresh: true,
+                markers: false
             },
-            x: "-500px", // This value doesn't matter much as we're using our own animation
+            x: "-500px",
         });
 
         // Animate function for smooth continuous movement
@@ -59,7 +56,7 @@ export default function Welcome() {
             }
 
             animationId = requestAnimationFrame(animate);
-            xPercent += 0.1 * direction;
+            xPercent += 0.075 * direction;
         };
 
         // Start the animation
@@ -79,7 +76,7 @@ export default function Welcome() {
             <div className='flex justify-start pt-7 px-12 md:pt-10 md:px-24 -mb-3 md:-mb-10'>
                 Welcome to
             </div>
-            <div className='flex flex-col md:flex-row items-center justify-start md:space-x-36 pt-7 px-12 space-y-7 md:space-y-0 md:pt-10 md:px-24'>
+            <div className='flex flex-col xl:flex-row items-center justify-start md:space-x-36 pt-7 px-12 space-y-7 xl:space-y-0 md:pt-10 xl:px-24'>
                 <div className={`text-4xl md:text-9xl text-[#D1A83A] ${unbounded.className} leading-snug`}>
                     DotSlash 2025
                 </div>
@@ -88,12 +85,12 @@ export default function Welcome() {
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi laborum corrupti blanditiis aspernatur voluptatem tempora suscipit ratione explicabo, assumenda, omnis aliquam odio impedit voluptate totam error quidem commodi similique quam?
                 </div>
             </div>
-            <div className='relative w-full flex justify-center items-center'>
+            <div className='relative w-full flex justify-center items-center lg:-mt-20'>
                 <div className='relative w-fit'>
                     <Image src={sphere} alt="sphere" width={1400} priority className='relative z-10 md:px-24' unoptimized={true} />
                 </div>
             </div>
-            <div className="overflow-hidden relative w-full h-32 md:-mt-52">
+            <div className="overflow-hidden relative w-full h-32 md:-mt-[6rem] lg:-mt-[8rem] xl:-mt-[10rem]">
                 <div ref={sliderRef} className="flex whitespace-nowrap">
                     <div
                         ref={firstTextRef}
