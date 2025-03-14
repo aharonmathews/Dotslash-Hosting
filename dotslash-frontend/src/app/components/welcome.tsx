@@ -9,16 +9,21 @@ import gsap from 'gsap';
 const unbounded = Unbounded({ weight: '400', style: 'normal', preload: false });
 const unboundedBold = Unbounded({ weight: '700', style: 'normal', preload: false });
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Welcome() {
     const firstTextRef = useRef<HTMLDivElement>(null);
     const secondTextRef = useRef<HTMLDivElement>(null);
     const sliderRef = useRef<HTMLDivElement>(null);
-    
+
     useEffect(() => {
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+        
         let xPercent = 0;
-        let direction = -1;
+        let direction = -1; // Start with this direction
+        let animationId: number;
+
+        // Calculate a better end position based on viewport
+        const endPosition = Math.min(window.innerHeight * 5,10000);
         
         // Create the scroll trigger to control direction based on scroll
         gsap.to(sliderRef.current, {
@@ -26,12 +31,19 @@ export default function Welcome() {
                 trigger: document.documentElement,
                 scrub: 0.25,
                 start: 0,
-                end: window.innerHeight,
-                onUpdate: e => direction = e.direction * -1
+                end:endPosition,
+                onUpdate: (self) => {
+                    direction = self.direction * -1;
+                    
+                    // Debug for desktop
+                    // console.log("Direction:", direction, "Progress:", self.progress);
+                },
+                invalidateOnRefresh: true, // Important for window resize
+                markers: false // Set to true to debug
             },
-            x: "-500px", // This doesn't really matter, we're using the onUpdate
+            x: "-500px", // This value doesn't matter much as we're using our own animation
         });
-        
+
         // Animate function for smooth continuous movement
         const animate = () => {
             if (xPercent < -100) {
@@ -40,21 +52,24 @@ export default function Welcome() {
             else if (xPercent > 0) {
                 xPercent = -100;
             }
-            
+
             if (firstTextRef.current && secondTextRef.current) {
                 gsap.set(firstTextRef.current, { xPercent: xPercent });
                 gsap.set(secondTextRef.current, { xPercent: xPercent });
             }
-            
-            requestAnimationFrame(animate);
+
+            animationId = requestAnimationFrame(animate);
             xPercent += 0.1 * direction;
         };
-        
+
         // Start the animation
-        requestAnimationFrame(animate);
-        
+        animationId = requestAnimationFrame(animate);
+
         // Cleanup
         return () => {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
         };
     }, []);
@@ -75,44 +90,25 @@ export default function Welcome() {
             </div>
             <div className='relative w-full flex justify-center items-center'>
                 <div className='relative w-fit'>
-                    <Image src={sphere} alt="sphere" width={1400} priority className='relative z-10 md:px-24' />
-                  
+                    <Image src={sphere} alt="sphere" width={1400} priority className='relative z-10 md:px-24' unoptimized={true} />
                 </div>
-                
-                {/* Slider container */}
-              {/* <div className="overflow-hidden absolute bottom-0  w-full h-32">
-                    <div ref={sliderRef} className="flex whitespace-nowrap">
-                        <div 
-                            ref={firstTextRef} 
-                            className={`text-6xl md:text-9xl ${unbounded.className} pr-8`}
-                        >
-                            ./CULTURALS  ./TECH  ./INNOVATION
-                        </div>
-                        <div 
-                            ref={secondTextRef} 
-                            className={`text-6xl md:text-9xl  ${unbounded.className} pr-8`}
-                        >
-                           ./CULTURALS  ./TECH  ./INNOVATION
-                        </div>
-                    </div>
-                </div>*/}
             </div>
-            <div className="overflow-hidden relative  w-full h-32 md:-mt-52">
-                    <div ref={sliderRef} className="flex whitespace-nowrap">
-                        <div 
-                            ref={firstTextRef} 
-                            className={`text-6xl md:text-9xl ${unbounded.className} pr-8`}
-                        >
-                            ./CULTURALS  ./TECH  ./INNOVATION
-                        </div>
-                        <div 
-                            ref={secondTextRef} 
-                            className={`text-6xl md:text-9xl  ${unbounded.className} pr-8`}
-                        >
-                           ./CULTURALS  ./TECH  ./INNOVATION
-                        </div>
+            <div className="overflow-hidden relative w-full h-32 md:-mt-52">
+                <div ref={sliderRef} className="flex whitespace-nowrap">
+                    <div
+                        ref={firstTextRef}
+                        className={`text-6xl md:text-9xl ${unbounded.className} pr-8`}
+                    >
+                        ./CULTURALS  ./TECH  ./INNOVATION
+                    </div>
+                    <div
+                        ref={secondTextRef}
+                        className={`text-6xl md:text-9xl ${unbounded.className} pr-8`}
+                    >
+                        ./CULTURALS  ./TECH  ./INNOVATION
                     </div>
                 </div>
+            </div>
         </div>
     );
 }
