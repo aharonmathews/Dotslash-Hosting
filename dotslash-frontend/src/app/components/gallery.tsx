@@ -2,14 +2,15 @@
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import cosmiceye from '@/app/assets/cosmiceye.png'
-import volcano from '@/app/assets/volcano.png'
-import crackedface from '@/app/assets/cracked-face.png'
-import desert from '@/app/assets/desert.png'
-import fireface from '@/app/assets/fire-face.png'
-import blindfold from '@/app/assets/blindfold.png'
-import stoneface from '@/app/assets/stone-face-desert.png'
-import rockwall from '@/app/assets/rock-wall.png'
+import img1 from '@/app/assets/gallery/1.jpg'
+import img2 from '@/app/assets/gallery/2.jpg'
+import img3 from '@/app/assets/gallery/3.jpg'
+import img4 from '@/app/assets/gallery/7.jpg'
+import img5 from '@/app/assets/gallery/4.jpg'
+import img6 from '@/app/assets/gallery/5.jpg' // bottom right
+import img7 from '@/app/assets/gallery/9.jpg' // bottom left large
+import img8 from '@/app/assets/gallery/8.jpg' // bottom
+
 import background from '@/app/assets/bg_gallery.jpeg'
 
 import { useScroll, motion, useTransform, cubicBezier } from 'framer-motion'
@@ -35,7 +36,7 @@ const Gallery = () => {
       </div>
       <div className="max-w-[1440px] mx-auto relative py-[169px] min-h-[1649px]">
        
-        <h1 className="font-[Unbounded] text-8xl text-white absolute left-[69px] top-[169px] hidden md:block">GLIMPSES OF DOTSLASH &apos;23</h1>
+        <h1 className="font-[Unbounded] text-8xl text-white absolute left-[69px] top-[130px] hidden md:block">GLIMPSES OF DOTSLASH &apos;23</h1>
         
         {/* Desktop Layout */}
         <div className="hidden md:block relative w-[1240px] h-[1076px] mx-auto mt-[206px]">
@@ -43,7 +44,7 @@ const Gallery = () => {
           <div ref={containerRef} className="absolute w-[612px] h-[405px] left-[calc(50%-612px/2)] bottom-[671px] overflow-hidden rounded">
             <motion.div style={{y}} className='h-full'>
               <Image
-                src={cosmiceye}
+                src={img1}
                 alt="Cosmic portal with person standing"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -52,11 +53,11 @@ const Gallery = () => {
             </motion.div>
           </div>
           
-          {/* Left Top - Volcano */}
+          {/* Left Top - img2 */}
           <div className="absolute w-[299px] h-[449px] left-[calc(50%-299px/2-470.5px)] bottom-[420px] overflow-hidden rounded">
             <motion.div style={{y}} className='h-full'>
               <Image
-                src={volcano}
+                src={img2}
                 alt="Glowing crater"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -65,12 +66,12 @@ const Gallery = () => {
             </motion.div>
           </div>
           
-          {/* Center Left - Stone Face Desert */}
+          {/* Center Left - Stone Face img6 */}
           <div className="absolute w-[299px] h-[240px] left-[calc(50%-299px/2-156.5px)] bottom-[420px] overflow-hidden rounded">
             <motion.div style={{y}} className='h-full'>
               <Image
-                src={stoneface}
-                alt="Fallen statue in desert"
+                src={img3}
+                alt="Fallen statue in img6"
                 fill
                 style={{ objectFit: 'cover' }}
                 className="scale-[120%] hover:scale-110 -translate-y-14  transition-transform duration-300 ease-in-out"
@@ -78,12 +79,12 @@ const Gallery = () => {
             </motion.div>
           </div>
           
-         {/* Far Right - Blindfolded Statue */}
+         {/* Far Right - img4ed Statue */}
           <div className="absolute w-[299px] h-[236px] left-[calc(50%-299px/2+470.5px)] bottom-[588px] overflow-hidden rounded">
             <motion.div style={{y}} className='h-full'>
               <Image
-                src={blindfold}
-                alt="Desert sunset landscape"
+                src={img4}
+                alt="img6 sunset landscape"
                 fill
                 style={{ objectFit: 'cover' }}
                 className="scale-[115%] hover:scale-[105%] -translate-y-10  transition-transform duration-300 ease-in-out"
@@ -95,7 +96,7 @@ const Gallery = () => {
           <div className="absolute w-[299px] h-[404px] left-[calc(50%-299px/2+157.5px)] bottom-[252px] overflow-hidden rounded">
             <motion.div style={{y}} className='h-full'>
               <Image
-                src={crackedface}
+                src={img5}
                 alt="Crowned statue"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -103,13 +104,13 @@ const Gallery = () => {
               />
             </motion.div>
           </div>
-          {/* Right Top - Desert Landscape */}
+          {/* Right Top - img6 Landscape */}
           
           <div className="absolute w-[299px] h-[449px] left-[calc(50%-299px/2+470.5px)] bottom-[120px] overflow-hidden rounded">
             <motion.div style={{y}} className='h-full'>
               <Image
-                src={desert}
-                alt="Blindfolded statue"
+                src={img6}
+                alt="img4ed statue"
                 fill
                 style={{ objectFit: 'cover' }}
                 className="scale-[120%] hover:scale-[115%] -translate-y-14 transition-transform duration-300 ease-in-out"
@@ -121,7 +122,7 @@ const Gallery = () => {
           <div className="absolute w-[612px] h-[405px] left-[calc(50%-612px/2-314px)] bottom-[0px] overflow-hidden rounded">
             <motion.div style={{y}} className='h-full'>
               <Image
-                src={rockwall}
+                src={img7}
                 alt="Ancient stone masks along a wall"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -134,7 +135,7 @@ const Gallery = () => {
           <div className="absolute w-[299px] h-[236px] left-[calc(50%-299px/2+157.5px)] bottom-[0px] overflow-hidden rounded">
             <motion.div style={{y}} className='h-full'>
               <Image
-                src={fireface}
+                src={img8}
                 alt="Face with glowing cracks"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -160,7 +161,7 @@ const Gallery = () => {
           <div className="relative aspect-[3/2] overflow-hidden rounded">
             <div>
               <Image
-                src={cosmiceye}
+                src={img1}
                 alt="Cosmic portal with person standing"
                 fill
                 style={{ objectFit: 'cover' }}
@@ -171,7 +172,7 @@ const Gallery = () => {
           
           <div className="relative aspect-[2/3] overflow-hidden rounded">
             <Image 
-              src={volcano} 
+              src={img2} 
               alt="Glowing crater" 
               fill
               style={{ objectFit: 'cover' }}
@@ -181,8 +182,8 @@ const Gallery = () => {
           
           <div className="relative aspect-[2/3] overflow-hidden rounded">
             <Image 
-              src={blindfold} 
-              alt="Blindfolded statue" 
+              src={img4} 
+              alt="img4ed statue" 
               fill
               style={{ objectFit: 'cover' }}
               className="transition-transform hover:scale-105 duration-300" 
@@ -191,8 +192,8 @@ const Gallery = () => {
           
           <div className="relative aspect-[1/1] overflow-hidden rounded">
             <Image 
-              src={stoneface} 
-              alt="Fallen statue in desert" 
+              src={img3} 
+              alt="Fallen statue in img6" 
               fill
               style={{ objectFit: 'cover' }}
               className="transition-transform hover:scale-105 duration-300" 
@@ -201,7 +202,7 @@ const Gallery = () => {
           
           <div className="relative aspect-[3/4] overflow-hidden rounded">
             <Image 
-              src={crackedface} 
+              src={img5} 
               alt="Crowned statue" 
               fill
               style={{ objectFit: 'cover' }}
@@ -211,8 +212,8 @@ const Gallery = () => {
           
           <div className="relative aspect-[5/4] overflow-hidden rounded">
             <Image 
-              src={desert} 
-              alt="Desert sunset landscape" 
+              src={img6} 
+              alt="img6 sunset landscape" 
               fill
               style={{ objectFit: 'cover' }}
               className="transition-transform hover:scale-105 duration-300" 
@@ -221,7 +222,7 @@ const Gallery = () => {
           
           <div className="relative aspect-[3/2] overflow-hidden rounded">
             <Image 
-              src={rockwall} 
+              src={img7} 
               alt="Ancient stone masks along a wall" 
               fill
               style={{ objectFit: 'cover' }}
@@ -231,7 +232,7 @@ const Gallery = () => {
           
           <div className="relative aspect-[5/4] overflow-hidden rounded">
             <Image 
-              src={fireface} 
+              src={img8} 
               alt="Face with glowing cracks" 
               fill
               style={{ objectFit: 'cover' }}

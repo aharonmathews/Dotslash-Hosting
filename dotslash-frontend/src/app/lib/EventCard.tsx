@@ -83,7 +83,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
         )}
 
         {/* Show poster if large=true */}
-        {( event.featured || layout) && (
+        {(layout === "large") && (
           <div className="w-full md:w-[280px] h-[220px] md:h-[330px] bg-black border border-gray-500 rounded-md mx-auto md:mx-0">
             <Image
               src={posterUrl || image1}

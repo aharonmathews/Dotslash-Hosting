@@ -81,8 +81,7 @@ export default function Welcome() {
                     DotSlash 2025
                 </div>
                 <div className='flex items-center justify-center md:justify-items-end'>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic reiciendis deleniti a error autem iusto, placeat incidunt et? Veritatis laborum cumque harum aut reiciendis, dolorem pariatur voluptatibus laboriosam esse. Temporibus.
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi laborum corrupti blanditiis aspernatur voluptatem tempora suscipit ratione explicabo, assumenda, omnis aliquam odio impedit voluptate totam error quidem commodi similique quam?
+                DotSlash 2025 is where technology meets thrill, creativity sparks innovation, and every moment is an experience to remember! Organized by the CSE department, this isn&apos;t just about tech—it&apos;s about energy, competition, and pure excitement. Dive into hands-on workshops, challenge yourself in mind-bending contests, and explore a world where tech blends seamlessly with fun. Whether you&apos;re here to test your skills, pick up something new, or just soak in the vibe, DotSlash guarantees an electrifying atmosphere with surprises at every turn. Get ready for a celebration of tech like never before!
                 </div>
             </div>
             <div className='relative w-full flex justify-center items-center lg:-mt-20'>
