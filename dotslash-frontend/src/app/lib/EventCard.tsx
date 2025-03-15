@@ -99,7 +99,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
         <div className="flex flex-col w-full md:w-[500px] mt-4 md:mt-0 justify-between h-full">
           <div>
             <div
-              className={`text-[#D1A83A] ${unbounded.className} pl-2 md:pl-6 pt-4 md:pt-8 text-xl md:text-2xl`}
+              className={`text-[#D1A83A] ${unbounded.className} pl-2 md:pl-6 pt-4 md:pt-8 text-xl md:text-2xl line-clamp-2`}
             >
               {event.title}
             </div>
@@ -167,7 +167,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
         <div className="flex flex-col w-full md:w-[400px] h-full justify-between md:h-[380px] md:p-4">
           <div>
             <div
-              className={`text-white ${unbounded.className} pl-2 md:pl-3 pt-2 md:pt-4 text-xl md:text-2xl`}
+              className={`text-white ${unbounded.className} pl-2 md:pl-3 pt-2 md:pt-4 text-xl md:text-2xl line-clamp-2`}
             >
               {event.title}
             </div>
@@ -198,7 +198,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
             </div>
           </div>
           <div
-            className={`text-white ${noto_sans.className} pl-2 md:pl-3 pt-4 text-sm flex flex-row items-center justify-between`}
+            className={`text-white ${noto_sans.className} pl-2 md:pl-3 text-sm flex flex-row items-center justify-between`}
           >
             <div className="flex flex-col items-center justify-center w-[93px] h-[107px] p-0">
               <p
