@@ -10,7 +10,7 @@ const Landing = () => {
       <div className="relative w-[95%]">
 
         <video
-          className="h-screen object-cover w-auto"
+          className="h-screen object-cover w-full"
           autoPlay
           loop
           muted
