@@ -9,7 +9,7 @@ import img4 from '@/app/assets/gallery/7.jpg'
 import img5 from '@/app/assets/gallery/4.jpg'
 import img6 from '@/app/assets/gallery/5.jpg' // bottom right
 import img7 from '@/app/assets/gallery/9.jpg' // bottom left large
-import img8 from '@/app/assets/gallery/8.jpg' // bottom
+import img8 from '@/app/assets/gallery/lab.jpg' // bottom
 
 import background from '@/app/assets/bg_gallery.jpeg'
 
