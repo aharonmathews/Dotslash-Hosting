@@ -73,11 +73,11 @@ export default function Welcome() {
 
     return (
         <div id="home" className="flex flex-col w-full min-h-screen">
-            <div className='flex justify-start pt-7 px-12 md:pt-10 md:px-24 -mb-3 md:-mb-10'>
+            <div className='flex justify-start pt-7  pl-[10%] md:pt-10 md:px-[5%] xl:px-[6.5rem] -mb-3 md:-mb-10'>
                 Welcome to
             </div>
             <div className='flex flex-col xl:flex-row items-center justify-start md:space-x-36 pt-7 px-12 space-y-7 xl:space-y-0 md:pt-10 xl:px-24'>
-                <div className={`text-4xl md:text-9xl text-[#D1A83A] ${unbounded.className} leading-snug`}>
+                <div className={`text-6xl md:text-9xl text-[#D1A83A] ${unbounded.className} leading-snug`}>
                     DotSlash 2025
                 </div>
                 <div className='flex items-center justify-center md:justify-items-end'>
