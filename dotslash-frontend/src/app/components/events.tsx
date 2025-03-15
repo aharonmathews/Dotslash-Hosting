@@ -120,54 +120,43 @@ function Events() {
   }, []);
 
   // Function to arrange events according to the required positions
-  const getArrangedEvents = () => {
-    // If no events from Sanity, use defaults
-    if (events.length === 0) return defaultEvents;
+  // Function to arrange events according to the required positions
+// Function to arrange events according to the required positions
+// Function to arrange events according to the required positions
+const getArrangedEvents = () => {
+  // If no events from Sanity, use defaults
+  if (events.length === 0) return defaultEvents;
 
-    // Make a copy of events to avoid mutation
-    const eventsClone = [...events];
-    const result: EventData[] = Array(7).fill(null);
-    
-    // Position 0: Featured event (or first event if no featured)
-    const featuredEvent = eventsClone.find(event => event.featured);
-    if (featuredEvent) {
-      result[0] = featuredEvent;
-      // Remove the featured event from the array
-      const index = eventsClone.findIndex(e => e._id === featuredEvent._id);
-      if (index > -1) eventsClone.splice(index, 1);
+  // Sort all events by date (newest first)
+  const sortedEvents = [...events].sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  // Split events into featured and non-featured groups (both already sorted by date)
+  const featuredEvents = sortedEvents.filter(event => event.featured);
+  const nonFeaturedEvents = sortedEvents.filter(event => !event.featured);
+  
+  // Prepare the result array
+  const result: EventData[] = Array(7).fill(null);
+  
+  // Combine events: featured events first, then non-featured events
+  // Both groups maintain their internal date sorting
+  const orderedEvents = [...featuredEvents, ...nonFeaturedEvents];
+  
+  // Fill the positions in order with our prioritized events
+  for (let i = 0; i < 7; i++) {
+    if (i < orderedEvents.length) {
+      result[i] = orderedEvents[i];
     } else {
-      result[0] = eventsClone.shift() || defaultEvents[0];
+      // Use default events as fallback
+      result[i] = defaultEvents[i];
     }
-    
-    // Position 3: Event with poster
-    const largeEvent = eventsClone.find(event => event.large);
-    if (largeEvent) {
-      result[3] = largeEvent;
-      // Remove the large event from the array
-      const index = eventsClone.findIndex(e => e._id === largeEvent._id);
-      if (index > -1) eventsClone.splice(index, 1);
-    } else {
-      // If no large event found, use the next available event or default
-      result[3] = eventsClone.shift() || defaultEvents[3];
-    }
-    
-    // Fill positions 1, 2, 4, 5, 6 with remaining events
-    const positions = [1, 2, 4, 5, 6];
-    positions.forEach((pos, i) => {
-      if (i < eventsClone.length) {
-        result[pos] = eventsClone[i];
-      } else {
-        result[pos] = defaultEvents[pos];
-      }
-    });
-    
-    // Fill any remaining empty slots with defaults
-    for (let i = 0; i < result.length; i++) {
-      if (!result[i]) result[i] = defaultEvents[i];
-    }
-    
-    return result;
-  };
+  }
+  
+  return result;
+};
 
   const displayEvents = getArrangedEvents();
 

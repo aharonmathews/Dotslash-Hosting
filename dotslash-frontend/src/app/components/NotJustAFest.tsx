@@ -24,16 +24,15 @@ const NotJustAFest = () => {
         <Image src={dsolve} alt="DotSlash Logo" className="w-[82px] md:w-[190px]" />
         <p className="mt-2 text-xs md:text-base">D Solve</p>
         <p className={`${noto.className} text-[10px] md:text-xs mt-1 opacity-80`}>
-          Nulla dui volutpat in a non faucibus arcu in.. Massa molestie quis
-          morbi id sit dictum odio diam elit..
+        A 12-hour hacknight to innovate, build, and compete. Team up, code hard, and bring ideas to life!
+
         </p>
       </div>
       <div className="absolute font-unbounded w-[92px] md:w-[200px] rounded-lg py-1 px-1 pb-3  top-[250px] md:top-[50%] right-2 md:right-[25%] bg-white/5 border border-slate-700 backdrop-blur-lg z-20">
         <Image src={dotnight} alt="DotSlash Logo" className="w-[82px] md:w-[190px]" />
         <p className="mt-2 text-xs md:text-base">DotNight</p>
         <p className={`${noto.className}  text-[10px] md:text-xs mt-1 opacity-80`}>
-          Nulla dui volutpat in a non faucibus arcu in.. Massa molestie quis
-          morbi id sit dictum odio diam elit..
+        A night of electrifying performances and artistic expression! Lose yourself in the music, dance, and creativity all around you.
         </p>
       </div>
       <div className="mt-[10px] md:mt-4 w-[130vw] h-[130vw] max-w-[1216px] max-h-[1216px] flex items-center justify-center rounded-full border-2 border-[#D1A83A66]">
@@ -63,8 +62,7 @@ const NotJustAFest = () => {
       </p>
 
       <p className=" font-unbounded w-[340px] max-w-[700px] font-[300] text-[14px] md:text-[20px] text-center mt-[80px] md:mt-[50px]">
-        Lorem ipsum dolor sit amet consectetur. Auctor dignissim massa urna dui.
-        Neque at sed tellus cursus posuere..
+      Discover new ideas, push boundaries, and dive into experiences that inspire. DotSlash &apos;25 is all about exploration!
       </p>
     </div>
   );

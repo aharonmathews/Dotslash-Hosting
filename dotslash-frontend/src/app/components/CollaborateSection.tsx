@@ -1,8 +1,8 @@
 import { Unbounded, Noto_Sans } from 'next/font/google';
 
 
-const unbounded = Unbounded({ weight: '400', style: 'normal', preload:false });
-const notoSans = Noto_Sans({ weight: '400', style: 'normal', preload:false });
+const unbounded = Unbounded({ weight: '400', style: 'normal', preload: false });
+const notoSans = Noto_Sans({ weight: '400', style: 'normal', preload: false });
 /* const unboundedBold = Unbounded({ weight: '700', style: 'normal' }); */
 
 const CollaborateSection = () => {
@@ -18,7 +18,10 @@ const CollaborateSection = () => {
                 {/* Sponsors Card */}
                 <div className="bg-[#D1A83A] text-black p-8  rounded-lg relative group cursor-pointer h-auto md:h-96 ">
                     <h3 className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Sponsors</h3>
-                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>Lorem ipsum dolor sit amet consectetur. Ut nec gravida nulla purus. Dui lectus venenatis ut erat. Amet faucibus tincidunt ornare volutpat.</p>
+                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>
+                    Partner with us to elevate DotSlash &apos;25! Gain visibility among tech enthusiasts, students, and professionals while supporting an exciting tech fest. Let&apos;s make an impact together.
+
+                    </p>
                     <br />
                     <br />
                     <br />
@@ -43,9 +46,12 @@ const CollaborateSection = () => {
                 </div>
 
                 {/* Clubs Card */}
-                <div className="bg-[#D1A83A] text-black p-8  rounded-lg relative group cursor-pointer h-auto md:h-96">
+                <a href="https://forms.gle/r4VKAswC8zZhFrdY9" target="_blank" className="bg-[#D1A83A] text-black p-8  rounded-lg relative group cursor-pointer h-auto md:h-96">
                     <h3 className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Clubs</h3>
-                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>Lorem ipsum dolor sit amet consectetur. Ut nec gravida nulla purus. Dui lectus venenatis ut erat. Amet faucibus tincidunt ornare volutpat.</p>
+                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>
+                        Collaborate with DotSlash &apos;25 to showcase your club&apos;s vision. Host workshops, competitions, or exhibits and engage with passionate tech minds!
+
+                    </p>
                     <br />
                     <br />
                     <br />
@@ -67,7 +73,7 @@ const CollaborateSection = () => {
                             <polyline points="7 7 17 7 17 17"></polyline>
                         </svg>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
     );
