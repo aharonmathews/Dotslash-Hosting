@@ -55,11 +55,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`z-[1000] fixed top-0 left-0 w-full bg-transparent transition-transform duration-300 ${
-        hidden ? "-translate-y-full" : "translate-y-0"
+      className={`z-[1000] fixed top-0 left-0 w-full h-[68px] bg-transparent duration-300 ${
+        hidden ? "-translate-y-[100px]" : "translate-y-0"
       }`}
     >
-      <div className={`bg-[#C49A32] text-black m-3 py-3 px-6 flex items-center justify-between duration-300 ${menuOpen?`rounded-t-[8px]`:`rounded-[8px]`}  relative`}>
+      <div className={`bg-[#C49A32] text-black m-3 py-3 px-6 h-[68px] flex items-center justify-between duration-300 ${menuOpen?`rounded-t-[8px]`:`rounded-[8px]`}  relative`}>
         {/* Logo Section */}
         <div className="flex items-center">
           <Image src={logo} alt="Logo" width={180} height={180} />

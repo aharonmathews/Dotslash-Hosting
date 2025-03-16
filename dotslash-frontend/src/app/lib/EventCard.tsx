@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { forwardRef, Ref } from "react";
 import Image from "next/image";
 import image1 from "../assets/Committee Call.png";
 import { Unbounded, Noto_Sans } from "next/font/google";
@@ -33,7 +33,7 @@ interface EventCardProps {
   layout: "large" | "small";
 }
 
-const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
+const EventCard = forwardRef<HTMLDivElement, EventCardProps>(function EventCard({ event, layout }, ref) {
   // Get poster URL from various possible structures
   const posterUrl = event.posterUrl || event.poster?.asset?.url || "";
 
@@ -217,6 +217,6 @@ const EventCard: React.FC<EventCardProps> = ({ event, layout }) => {
       </div>
     );
   }
-};
+});
 
 export default EventCard;

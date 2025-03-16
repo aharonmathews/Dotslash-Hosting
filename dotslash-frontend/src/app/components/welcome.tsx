@@ -5,33 +5,37 @@ import { Unbounded } from 'next/font/google';
 import { useEffect, useRef } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
+import { motion } from 'framer-motion';
+import { paragraphVariants } from '../lib/ParagraphAnimation';
 
 const unbounded = Unbounded({ weight: '400', style: 'normal', preload: false });
 const unboundedBold = Unbounded({ weight: '700', style: 'normal', preload: false });
+
 
 export default function Welcome() {
     const firstTextRef = useRef<HTMLDivElement>(null);
     const secondTextRef = useRef<HTMLDivElement>(null);
     const sliderRef = useRef<HTMLDivElement>(null);
 
+    //Banner animation using gsap
     useEffect(() => {
         // Register ScrollTrigger plugin
         gsap.registerPlugin(ScrollTrigger);
-        
+
         let xPercent = 0;
         let direction = -1; // Start with this direction
         let animationId: number;
 
         // Calculate a better end position based on viewport
-        const endPosition = Math.min(window.innerHeight * 5,10000);
-        
+        const endPosition = Math.min(window.innerHeight * 5, 10000);
+
         // Create the scroll trigger to control direction based on scroll
         gsap.to(sliderRef.current, {
             scrollTrigger: {
                 trigger: document.documentElement,
                 scrub: 0.25,
                 start: 0,
-                end:endPosition,
+                end: endPosition,
                 onUpdate: (self) => {
                     direction = self.direction * -1;
                 },
@@ -80,9 +84,14 @@ export default function Welcome() {
                 <div className={`text-6xl md:text-9xl text-[#D1A83A] ${unbounded.className} leading-snug`}>
                     DotSlash 2025
                 </div>
-                <div className='flex items-center justify-center md:justify-items-end'>
-                DotSlash 2025 is where technology meets thrill, creativity sparks innovation, and every moment is an experience to remember! Organized by the CSE department, this isn&apos;t just about tech—it&apos;s about energy, competition, and pure excitement. Dive into hands-on workshops, challenge yourself in mind-bending contests, and explore a world where tech blends seamlessly with fun. Whether you&apos;re here to test your skills, pick up something new, or just soak in the vibe, DotSlash guarantees an electrifying atmosphere with surprises at every turn. Get ready for a celebration of tech like never before!
-                </div>
+                <motion.div
+                variants={paragraphVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false }} 
+                className='flex items-center justify-center md:justify-items-end'>
+                    DotSlash 2025 is where technology meets thrill, creativity sparks innovation, and every moment is an experience to remember! Organized by the CSE department, this isn&apos;t just about tech—it&apos;s about energy, competition, and pure excitement. Dive into hands-on workshops, challenge yourself in mind-bending contests, and explore a world where tech blends seamlessly with fun. Whether you&apos;re here to test your skills, pick up something new, or just soak in the vibe, DotSlash guarantees an electrifying atmosphere with surprises at every turn. Get ready for a celebration of tech like never before!
+                </motion.div>
             </div>
             <div className='relative w-full flex justify-center items-center lg:-mt-20'>
                 <div className='relative w-fit'>

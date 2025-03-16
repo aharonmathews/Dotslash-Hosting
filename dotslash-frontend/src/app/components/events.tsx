@@ -1,14 +1,18 @@
 "use client"
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Unbounded, Noto_Sans } from "next/font/google";
 import Orbit from "./Orbit";
 import EventCard, { EventData } from "../lib/EventCard";
 import { client } from "../../sanity/client"; // Adjust the path as needed
 import HoverButton from "./HoverButton";
+import gsap from "gsap";
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 const unbounded = Unbounded({ weight: "400", style: "normal", preload: false });
 const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
+
+gsap.registerPlugin(ScrollTrigger);
 
 // Default events as fallback data
 const defaultEvents: EventData[] = [
@@ -81,6 +85,11 @@ function Events() {
   const [events, setEvents] = useState<EventData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   
+  // Create refs for animation containers
+  const titleRef = useRef<HTMLDivElement>(null);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
+
+  // Fetch events from sanity
   useEffect(() => {
     async function fetchEvents() {
       try {
@@ -95,9 +104,9 @@ function Events() {
           featured,
           large
         }`;
-        
+
         const data = await client.fetch<EventData[]>(query);
-        
+
         if (data && data.length > 0) {
           // Add isSanityData flag to differentiate from fallback data
           const processedData = data.map(event => ({
@@ -119,44 +128,100 @@ function Events() {
     fetchEvents();
   }, []);
 
-  // Function to arrange events according to the required positions
-  // Function to arrange events according to the required positions
-// Function to arrange events according to the required positions
-// Function to arrange events according to the required positions
-const getArrangedEvents = () => {
-  // If no events from Sanity, use defaults
-  if (events.length === 0) return defaultEvents;
+  // Animation for cards
+  useEffect(() => {
+    if (loading) return;
+    
+    // Register ScrollTrigger plugin (ensure it's registered)
+    gsap.registerPlugin(ScrollTrigger);
+  
+    // Function to create the animation
+    const createAnimation = () => {
+      // Get all card elements
+      const cards = document.querySelectorAll('.event-card');
+      
+      // Set initial state
+      gsap.set(titleRef.current, {
+        opacity: 0,
+        y: 20
+      });
+      
+      gsap.set(cards, {
+        opacity: 0,
+        y: 50,
+        scale: 0.95
+      });
+  
+      // Create animation timeline
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#events',
+          start: "top 80%",
+          end: "bottom top", // End when the bottom of events leaves the top of viewport
+          toggleActions: "play none none reset", // PLAY when entering, RESET when leaving
+          markers: false // Set to true for debugging
+        }
+      });
+  
+      // Animate title first
+      tl.to(titleRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out"
+      });
+      
+      // Then animate cards with staggered effect
+      tl.to(cards, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.3, // 300ms stagger between cards
+        ease: "back.out(1.4)"
+      }, "-=0.2"); // Slight overlap with title animation
+  
+      return tl;
+    };
+    
+    // Create the animation
+    const timeline = createAnimation();
+  
+    // Clean up function
+    return () => {
+      // Kill all ScrollTrigger instances
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      // Kill the timeline
+      if (timeline) timeline.kill();
+    };
+  }, [loading]);
 
-  // Sort all events by date (newest first)
-  const sortedEvents = [...events].sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    return dateB.getTime() - dateA.getTime();
-  });
+  const getArrangedEvents = () => {
+    if (events.length === 0) return defaultEvents;
 
-  // Split events into featured and non-featured groups (both already sorted by date)
-  const featuredEvents = sortedEvents.filter(event => event.featured);
-  const nonFeaturedEvents = sortedEvents.filter(event => !event.featured);
-  
-  // Prepare the result array
-  const result: EventData[] = Array(7).fill(null);
-  
-  // Combine events: featured events first, then non-featured events
-  // Both groups maintain their internal date sorting
-  const orderedEvents = [...featuredEvents, ...nonFeaturedEvents];
-  
-  // Fill the positions in order with our prioritized events
-  for (let i = 0; i < 7; i++) {
-    if (i < orderedEvents.length) {
-      result[i] = orderedEvents[i];
-    } else {
-      // Use default events as fallback
-      result[i] = defaultEvents[i];
+    const sortedEvents = [...events].sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    const featuredEvents = sortedEvents.filter(event => event.featured);
+    const nonFeaturedEvents = sortedEvents.filter(event => !event.featured);
+
+    const result: EventData[] = Array(7).fill(null);
+
+    const orderedEvents = [...featuredEvents, ...nonFeaturedEvents];
+
+    for (let i = 0; i < 7; i++) {
+      if (i < orderedEvents.length) {
+        result[i] = orderedEvents[i];
+      } else {
+        result[i] = defaultEvents[i];
+      }
     }
-  }
-  
-  return result;
-};
+
+    return result;
+  };
 
   const displayEvents = getArrangedEvents();
 
@@ -177,47 +242,57 @@ const getArrangedEvents = () => {
 
       <div className="max-w-7xl w-full px-4 relative z-10">
         <div
+          ref={titleRef}
           className={`${unbounded.className} md:py-[60px] font-normal text-[45px] md:text-[90px] leading-[100%] tracking-[0%] text-white`}
         >
           UPCOMING<br /> EVENTS
         </div>
 
         {/* Events grid */}
-        <div className="flex flex-col mt-5 md:mt-10">
+        <div ref={cardsContainerRef} className="flex flex-col mt-5 md:mt-10">
           {/* First row */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-5 md:mt-10">
             {/* Position 0: Featured event (large card) */}
-            <EventCard event={displayEvents[0]} layout="large" />
-            
+            <div className="event-card">
+              <EventCard event={displayEvents[0]} layout="large" />
+            </div>
+
             {/* Position 1: Small card */}
-            <EventCard event={displayEvents[1]} layout="small" />
+            <div className="event-card">
+              <EventCard event={displayEvents[1]} layout="small" />
+            </div>
           </div>
 
           {/* Second row */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-5 md:mt-10">
             {/* Position 2: Small card */}
-            <EventCard event={displayEvents[2]} layout="small" />
-            
+            <div className="event-card">
+              <EventCard event={displayEvents[2]} layout="small" />
+            </div>
+
             {/* Position 3: Large card with poster */}
-            <EventCard event={displayEvents[3]} layout="large" />
+            <div className="event-card">
+              <EventCard event={displayEvents[3]} layout="large" />
+            </div>
           </div>
 
           {/* Third row */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-5 mt-5 md:mt-10">
             {/* Positions 4, 5, 6: Small cards */}
             {[4, 5, 6].map((index) => (
-              <EventCard 
-                key={displayEvents[index]._id} 
-                event={displayEvents[index]} 
-                layout="small" 
-              />
+              <div key={displayEvents[index]._id} className="event-card">
+                <EventCard 
+                  event={displayEvents[index]}
+                  layout="small"
+                />
+              </div>
             ))}
           </div>
         </div>
 
-      <div className="flex flex-col justify-center items-center w-full mt-[36px] font-unbounded">
-        <HoverButton url="/events" small={false} text="SHOW MORE" invert={true}/>
-      </div>
+        <div className="flex flex-col justify-center items-center w-full mt-[36px] font-unbounded">
+          <HoverButton url="/events" small={false} text="SHOW MORE" invert={true} />
+        </div>
       </div>
     </div>
   );

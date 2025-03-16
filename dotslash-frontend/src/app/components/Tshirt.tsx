@@ -1,9 +1,12 @@
+"use client"
 import Image from "next/image";
 import TshirtImage from "../assets/dotshirt.png";
 import Tbackground from "../assets/Tbackground.png";
 import { Unbounded } from "next/font/google";
 import ShaderCanvas from "./shaderCanvas";
 import HoverButton from "./HoverButton";
+import { motion } from "framer-motion";
+import { paragraphVariants } from "../lib/ParagraphAnimation";
 
 const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -23,13 +26,25 @@ export default function Tshirt() {
           </h1>
 
           <div className="text-slate-200 text-sm lg:text-base leading-relaxed mt-4  md:w-[43%] w-[350px]">
-            DotSlash &apos;25 merch is here! This isn&apos;t just a T-shirt — it&apos;s a badge of honor, a symbol of the electrifying energy that defines the fest. Designed for those who live and breathe tech, it&apos;s bold, exclusive, and built to make a statement. Whether you&apos;re competing, creating, or just vibing with the community, this tee lets you carry the spirit of DotSlash wherever you go.
+            <motion.div
+              variants={paragraphVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false }}
+            >
+              DotSlash &apos;25 merch is here! This isn&apos;t just a T-shirt — it&apos;s a badge of honor, a symbol of the electrifying energy that defines the fest. Designed for those who live and breathe tech, it&apos;s bold, exclusive, and built to make a statement. Whether you&apos;re competing, creating, or just vibing with the community, this tee lets you carry the spirit of DotSlash wherever you go.
+            </motion.div>
 
             <br />
             <br />
-            <p className="hidden md:block">
+            <motion.div
+              className="hidden md:block"
+              variants={paragraphVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false }}>
               Limited edition and up for grabs—once they&apos;re gone, they&apos;re gone! Don&apos;t miss your chance to own a piece of the fest. Lock in your order now and be part of something bigger.
-            </p>
+            </motion.div>
           </div>
 
           <HoverButton small={false} />
