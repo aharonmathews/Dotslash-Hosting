@@ -1,5 +1,7 @@
+"use client"
 import { Unbounded, Noto_Sans } from 'next/font/google';
-
+import { motion } from "framer-motion"
+import { paragraphVariants } from '../lib/ParagraphAnimation';
 
 const unbounded = Unbounded({ weight: '400', style: 'normal', preload: false });
 const notoSans = Noto_Sans({ weight: '400', style: 'normal', preload: false });
@@ -18,10 +20,15 @@ const CollaborateSection = () => {
                 {/* Sponsors Card */}
                 <div className="bg-[#D1A83A] text-black p-8  rounded-lg relative group cursor-pointer h-auto md:h-96 ">
                     <h3 className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Sponsors</h3>
-                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>
-                    Partner with us to elevate DotSlash &apos;25! Gain visibility among tech enthusiasts, students, and professionals while supporting an exciting tech fest. Let&apos;s make an impact together.
+                    <motion.div
+                        variants={paragraphVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false }}
+                        className={`text-sm md:text-base ${notoSans.className} mb-8 `}>
+                        Partner with us to elevate DotSlash &apos;25! Gain visibility among tech enthusiasts, students, and professionals while supporting an exciting tech fest. Let&apos;s make an impact together.
 
-                    </p>
+                    </motion.div>
                     <br />
                     <br />
                     <br />
@@ -48,10 +55,15 @@ const CollaborateSection = () => {
                 {/* Clubs Card */}
                 <a href="https://forms.gle/r4VKAswC8zZhFrdY9" target="_blank" className="bg-[#D1A83A] text-black p-8  rounded-lg relative group cursor-pointer h-auto md:h-96">
                     <h3 className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Clubs</h3>
-                    <p className={`text-sm md:text-base ${notoSans.className} mb-8 `}>
+                    <motion.div
+                        variants={paragraphVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false }}
+                        className={`text-sm md:text-base ${notoSans.className} mb-8 `}>
                         Collaborate with DotSlash &apos;25 to showcase your club&apos;s vision. Host workshops, competitions, or exhibits and engage with passionate tech minds!
 
-                    </p>
+                    </motion.div>
                     <br />
                     <br />
                     <br />
