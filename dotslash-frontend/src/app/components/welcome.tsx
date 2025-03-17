@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
 import { paragraphVariants } from '../lib/ParagraphAnimation';
+import { headingVariants } from '../lib/HeadingAnimation';
 
 const unbounded = Unbounded({ weight: '400', style: 'normal', preload: false });
 const unboundedBold = Unbounded({ weight: '700', style: 'normal', preload: false });
@@ -77,18 +78,28 @@ export default function Welcome() {
 
     return (
         <div id="home" className="flex flex-col w-full min-h-screen">
-            <div className='flex justify-start pt-7  pl-[10%] md:pt-10 md:px-[5%] xl:px-[6.5rem] -mb-3 md:-mb-10'>
+            <motion.div 
+            variants={headingVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className='flex justify-start pt-7  pl-[10%] md:pt-10 md:px-[5%] xl:px-[6.5rem] -mb-3 md:-mb-10'>
                 Welcome to
-            </div>
+            </motion.div>
             <div className='flex flex-col xl:flex-row items-center justify-start md:space-x-36 pt-7 px-12 space-y-7 xl:space-y-0 md:pt-10 xl:px-24'>
-                <div className={`text-6xl md:text-9xl text-[#D1A83A] ${unbounded.className} leading-snug`}>
+                <motion.div
+                variants={headingVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className={`text-6xl md:text-9xl text-[#D1A83A] ${unbounded.className} leading-snug`}>
                     DotSlash 2025
-                </div>
+                </motion.div>
                 <motion.div
                 variants={paragraphVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false }} 
+                viewport={{ once: true }}
                 className='flex items-center justify-center md:justify-items-end'>
                     DotSlash 2025 is where technology meets thrill, creativity sparks innovation, and every moment is an experience to remember! Organized by the CSE department, this isn&apos;t just about tech—it&apos;s about energy, competition, and pure excitement. Dive into hands-on workshops, challenge yourself in mind-bending contests, and explore a world where tech blends seamlessly with fun. Whether you&apos;re here to test your skills, pick up something new, or just soak in the vibe, DotSlash guarantees an electrifying atmosphere with surprises at every turn. Get ready for a celebration of tech like never before!
                 </motion.div>

@@ -67,7 +67,7 @@ const EventCard = forwardRef<HTMLDivElement, EventCardProps>(function EventCard(
   if (layout === "large") {
     return (
       <div
-        className={`w-full md:w-[800px] h-auto md:h-[380px] bg-black border ${event.featured ? "border-[#D1A83A]" : "border-gray-500"} rounded-md p-4 md:pt-5 md:pl-4 flex flex-col md:flex-row relative`}
+        className={`w-full md:w-[800px] h-auto md:h-[380px] bg-black border ${event.featured ? "border-[#D1A83A]" : "border-gray-500"} rounded-md p-4 md:pt-5 md:pl-4 flex flex-col md:flex-row relative hover:scale-105 hover:border-[#D1A83A] duration-300`}
       >
         {/* Featured tag */}
         {event.featured && (
@@ -151,7 +151,7 @@ const EventCard = forwardRef<HTMLDivElement, EventCardProps>(function EventCard(
   } else {
     // Small card layout (positions 1, 2, 4, 5, 6)
     return (
-      <div className="w-full md:w-[420px] h-auto md:h-[380px] bg-black border border-gray-500 rounded-md p-4 md:p-0 relative">
+      <div className="w-full md:w-[420px] h-auto md:h-[380px] bg-black border border-gray-500 hover:scale-105 hover:border-[#D1A83A] duration-300 rounded-md p-4 md:p-0 relative">
         {/* Featured tag */}
         {event.featured && (
           <div className="absolute -top-4 right-4 md:right-20">

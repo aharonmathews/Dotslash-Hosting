@@ -1,9 +1,13 @@
+"use client"
+
 import React from "react";
 import logo from "@/app/assets/logo.gif";
 import dsolve from "@/app/assets/DSolve.png";
 import dotnight from "@/app/assets/dotnight.png";
 import Image from "next/image";
 import { Noto_Sans } from "next/font/google";
+import { headingVariants } from "../lib/HeadingAnimation";
+import { motion } from "framer-motion"
 
 const noto = Noto_Sans({ subsets: ["latin"], weight: ["400"] });
 
@@ -24,7 +28,7 @@ const NotJustAFest = () => {
         <Image src={dsolve} alt="DotSlash Logo" className="w-[82px] md:w-[190px]" />
         <p className="mt-2 text-xs md:text-base">D Solve</p>
         <p className={`${noto.className} text-[10px] md:text-xs mt-1 opacity-80`}>
-        A 12-hour hacknight to innovate, build, and compete. Team up, code hard, and bring ideas to life!
+          A 12-hour hacknight to innovate, build, and compete. Team up, code hard, and bring ideas to life!
 
         </p>
       </div>
@@ -32,7 +36,7 @@ const NotJustAFest = () => {
         <Image src={dotnight} alt="DotSlash Logo" className="w-[82px] md:w-[190px]" />
         <p className="mt-2 text-xs md:text-base">DotNight</p>
         <p className={`${noto.className}  text-[10px] md:text-xs mt-1 opacity-80`}>
-        A night of electrifying performances and artistic expression! Lose yourself in the music, dance, and creativity all around you.
+          A night of electrifying performances and artistic expression! Lose yourself in the music, dance, and creativity all around you.
         </p>
       </div>
       <div className="mt-[10px] md:mt-4 w-[130vw] h-[130vw] max-w-[1216px] max-h-[1216px] flex items-center justify-center rounded-full border-2 border-[#D1A83A66]">
@@ -54,15 +58,25 @@ const NotJustAFest = () => {
         </div>
       </div>
 
-      <p className="absolute top-[-30px] md:top-10 font-unbounded uppercase leading-tight font-[400] text-[46px] md:text-[96px] text-center w-[340px] md:w-[580px]">
+      <motion.div
+        variants={headingVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="absolute top-[-30px] md:top-10 font-unbounded uppercase leading-tight font-[400] text-[46px] md:text-[96px] text-center w-[340px] md:w-[580px]">
         Not just a <b className="font-[400] text-[#D1A83A]">fest</b>
-      </p>
-      <p className="absolute bottom-[60px] md:bottom-[10%] font-unbounded uppercase leading-tight font-[400] text-[46px] md:text-[96px] text-center w-[420px] md:w-[722px]">
+      </motion.div>
+      <motion.div
+        variants={headingVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="absolute bottom-[60px] md:bottom-[10%] font-unbounded uppercase leading-tight font-[400] text-[46px] md:text-[96px] text-center w-[420px] md:w-[722px]">
         The power to <b className="font-[400] text-[#D1A83A]">explore</b>
-      </p>
+      </motion.div>
 
       <p className=" font-unbounded w-[340px] max-w-[700px] font-[300] text-[14px] md:text-[20px] text-center mt-[80px] md:mt-[50px]">
-      Discover new ideas, push boundaries, and dive into experiences that inspire. DotSlash &apos;25 is all about exploration!
+        Discover new ideas, push boundaries, and dive into experiences that inspire. DotSlash &apos;25 is all about exploration!
       </p>
     </div>
   );

@@ -2,6 +2,7 @@
 import { Unbounded, Noto_Sans } from 'next/font/google';
 import { motion } from "framer-motion"
 import { paragraphVariants } from '../lib/ParagraphAnimation';
+import { headingVariants } from '../lib/HeadingAnimation';
 
 const unbounded = Unbounded({ weight: '400', style: 'normal', preload: false });
 const notoSans = Noto_Sans({ weight: '400', style: 'normal', preload: false });
@@ -19,12 +20,17 @@ const CollaborateSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2  gap-8 justify-evenly max-w-7xl mx-auto ">
                 {/* Sponsors Card */}
                 <div className="bg-[#D1A83A] text-black p-8  rounded-lg relative group cursor-pointer h-auto md:h-96 ">
-                    <h3 className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Sponsors</h3>
+                    <motion.h3 
+                    variants={headingVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Sponsors</motion.h3>
                     <motion.div
                         variants={paragraphVariants}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         className={`text-sm md:text-base ${notoSans.className} mb-8 `}>
                         Partner with us to elevate DotSlash &apos;25! Gain visibility among tech enthusiasts, students, and professionals while supporting an exciting tech fest. Let&apos;s make an impact together.
 
@@ -54,12 +60,17 @@ const CollaborateSection = () => {
 
                 {/* Clubs Card */}
                 <a href="https://forms.gle/r4VKAswC8zZhFrdY9" target="_blank" className="bg-[#D1A83A] text-black p-8  rounded-lg relative group cursor-pointer h-auto md:h-96">
-                    <h3 className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Clubs</h3>
+                    <motion.h3 
+                    variants={headingVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className={`text-2xl md:text-3xl lg:text-4xl ${unbounded.className} mb-4`}>For Clubs</motion.h3>
                     <motion.div
                         variants={paragraphVariants}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         className={`text-sm md:text-base ${notoSans.className} mb-8 `}>
                         Collaborate with DotSlash &apos;25 to showcase your club&apos;s vision. Host workshops, competitions, or exhibits and engage with passionate tech minds!
 
