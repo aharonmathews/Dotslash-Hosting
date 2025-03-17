@@ -139,6 +139,8 @@ function Events() {
     const createAnimation = () => {
       // Get all card elements
       const cards = document.querySelectorAll('.event-card');
+      const cards1 = document.querySelectorAll('.event-card1');
+      const cards2 = document.querySelectorAll('.event-card2');
       
       // Set initial state
       gsap.set(titleRef.current, {
@@ -158,7 +160,7 @@ function Events() {
           trigger: '#events',
           start: "top 80%",
           end: "bottom top", // End when the bottom of events leaves the top of viewport
-          toggleActions: "play none none reset", // PLAY when entering, RESET when leaving
+          toggleActions: "play none none none", // PLAY when entering, RESET when leaving
           markers: false // Set to true for debugging
         }
       });
@@ -177,7 +179,25 @@ function Events() {
         y: 0,
         scale: 1,
         duration: 0.8,
-        stagger: 0.3, // 300ms stagger between cards
+        stagger: 0.8, // 300ms stagger between cards
+        ease: "back.out(1.4)"
+      }, "-=0.2"); // Slight overlap with title animation
+
+      tl.to(cards1, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.8, // 300ms stagger between cards
+        ease: "back.out(1.4)"
+      }, "-=0.2"); // Slight overlap with title animation
+
+      tl.to(cards2, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.8, // 300ms stagger between cards
         ease: "back.out(1.4)"
       }, "-=0.2"); // Slight overlap with title animation
   
@@ -266,12 +286,12 @@ function Events() {
           {/* Second row */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-5 md:mt-10">
             {/* Position 2: Small card */}
-            <div className="event-card">
+            <div className="event-card1">
               <EventCard event={displayEvents[2]} layout="small" />
             </div>
 
             {/* Position 3: Large card with poster */}
-            <div className="event-card">
+            <div className="event-card1">
               <EventCard event={displayEvents[3]} layout="large" />
             </div>
           </div>
@@ -280,7 +300,7 @@ function Events() {
           <div className="flex flex-col md:flex-row gap-6 md:gap-5 mt-5 md:mt-10">
             {/* Positions 4, 5, 6: Small cards */}
             {[4, 5, 6].map((index) => (
-              <div key={displayEvents[index]._id} className="event-card">
+              <div key={displayEvents[index]._id} className="event-card2">
                 <EventCard 
                   event={displayEvents[index]}
                   layout="small"

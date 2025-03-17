@@ -7,42 +7,45 @@ import ShaderCanvas from "./shaderCanvas";
 import HoverButton from "./HoverButton";
 import { motion } from "framer-motion";
 import { paragraphVariants } from "../lib/ParagraphAnimation";
+import { headingVariants } from "../lib/HeadingAnimation";
 
 const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Tshirt() {
   return (
-    <div id="tshirt" className="relative z-10 md:w-full h-screen inset-0 flex flex-col items-start justify-start text-white">
+    <div id="tshirt" className="relative z-10 md:w-full inset-0 flex flex-col items-start justify-start text-white">
       <div className="absolute left-1/2 -translate-x-1/2 inset-0 md:w-full w-[600px] md:h-[800px] h-full bg-cover">
         <ShaderCanvas image="/Tbackground.png" />{/* 
         <div className="absolute inset-0 w-screen bg-black opacity-40 "></div> */}
       </div>
 
-      <div className="relative flex md:flex-row flex-col justify-between max-sm:py-0 p-6 h-full w-full pt-12 mt-7 md:mt-12">
+      <div className="relative flex md:flex-row flex-col justify-between max-sm:py-0 p-6 h-full w-full pt-12 mt-7 md:mt-8">
         <div className="text-left mb-10  md:ml-10 md:pl-10 h-full">
-          <h1 className={`md:text-6xl xl:text-8xl text-4xl ${unbounded.className} mb-5`}>
+          <motion.h1
+          variants={headingVariants}
+          initial="hidden"
+          whileInView="visible" 
+          viewport={{ once: true }}
+          className={`md:text-6xl xl:text-8xl text-4xl ${unbounded.className} mb-5`}>
             GRAB YOUR <br />
             <span className="md:mt-5 block">TEES</span>
-          </h1>
+          </motion.h1>
 
           <div className="text-slate-200 text-sm lg:text-base leading-relaxed mt-4  md:w-[43%] w-[350px]">
             <motion.div
               variants={paragraphVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false }}
+              viewport={{ once: true }}
             >
               DotSlash &apos;25 merch is here! This isn&apos;t just a T-shirt — it&apos;s a badge of honor, a symbol of the electrifying energy that defines the fest. Designed for those who live and breathe tech, it&apos;s bold, exclusive, and built to make a statement. Whether you&apos;re competing, creating, or just vibing with the community, this tee lets you carry the spirit of DotSlash wherever you go.
             </motion.div>
-
-            <br />
-            <br />
             <motion.div
               className="hidden md:block"
               variants={paragraphVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false }}>
+              viewport={{ once: true }}>
               Limited edition and up for grabs—once they&apos;re gone, they&apos;re gone! Don&apos;t miss your chance to own a piece of the fest. Lock in your order now and be part of something bigger.
             </motion.div>
           </div>
