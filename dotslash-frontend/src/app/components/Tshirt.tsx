@@ -13,13 +13,13 @@ const unbounded = Unbounded({ subsets: ["latin"], weight: ["400", "700"] });
 
 export default function Tshirt() {
   return (
-    <div id="tshirt" className="relative z-10 md:w-full inset-0 flex flex-col items-start justify-start text-white">
-      <div className="absolute left-1/2 -translate-x-1/2 inset-0 md:w-full w-[600px] md:h-[800px] h-full bg-cover">
-        <ShaderCanvas image="/Tbackground.png" />{/* 
-        <div className="absolute inset-0 w-screen bg-black opacity-40 "></div> */}
+    <div id="tshirt" className="relative z-10 mb-[10rem] md:mb-20 md:w-full inset-0 flex flex-col items-start justify-start text-white">
+      <div className="absolute left-1/2 -translate-x-1/2 inset-0 md:w-full w-[600px] h-[800px] bg-cover">
+        {/* <ShaderCanvas image="/Tbackground.png" /> */}
+        <Image src="/Tbackground.png" width={100} height={100} alt="TShirt bg image" className="w-full h-full object-cover"/>
       </div>
 
-      <div className="relative flex md:flex-row flex-col justify-between max-sm:py-0 p-6 h-full w-full pt-12 mt-7 md:mt-8">
+      <div className="relative flex md:flex-row flex-col justify-between max-sm:py-0 p-6 h-full w-full pt-12 mt-10 md:mt-10">
         <div className="text-left mb-10  md:ml-10 md:pl-10 h-full">
           <motion.h1
           variants={headingVariants}

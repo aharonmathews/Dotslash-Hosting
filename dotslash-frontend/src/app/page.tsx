@@ -12,7 +12,7 @@ import Landing from "./components/Landing";
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col w-full gap-10 overflow-hidden bg-black">
+      <div id="landing" className="flex flex-col w-full gap-10 overflow-hidden bg-black">
         
         <Navbar/>
         <Landing />
