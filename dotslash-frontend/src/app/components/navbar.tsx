@@ -61,9 +61,9 @@ const Navbar = () => {
     >
       <div className={`bg-[#C49A32] text-black m-3 py-3 px-6 h-[68px] flex items-center justify-between duration-300 ${menuOpen?`rounded-t-[8px]`:`rounded-[8px]`}  relative`}>
         {/* Logo Section */}
-        <div className="flex items-center">
+        <a href="#landing" className="flex items-center">
           <Image src={logo} alt="Logo" width={180} height={180} />
-        </div>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-lg font-medium">

@@ -178,8 +178,8 @@ function Events() {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.8,
-        stagger: 0.8, // 300ms stagger between cards
+        duration: 0.5,
+        stagger: 0.4, // 300ms stagger between cards
         ease: "back.out(1.4)"
       }, "-=0.2"); // Slight overlap with title animation
 
@@ -187,8 +187,8 @@ function Events() {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 0.8,
-        stagger: 0.8, // 300ms stagger between cards
+        duration: 0.5,
+        stagger: 0.4, // 300ms stagger between cards
         ease: "back.out(1.4)"
       }, "-=0.2"); // Slight overlap with title animation
 
