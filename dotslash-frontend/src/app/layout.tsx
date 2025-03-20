@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/navbar"; 
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DotSlash 2025",
     description: "The official website for DotSlash 2025, the techno-cultural fest of CSE CET",
-    url: "https://dotslashcet.in/", // Choose your primary URL here
+    url: "https://dotslashcet.in/",
     type: "website",
     images: "https://i.postimg.cc/qBPjg18z/card-Image.jpg",
   },
@@ -38,9 +39,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
+      <body id="landing"
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>

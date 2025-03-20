@@ -73,7 +73,7 @@ const EventsPage = () => {
   // If no events found
   if (events.length === 0) {
     return (
-      <div className="bg-black w-full min-h-screen flex flex-col justify-center items-center px-4 py-20">
+      <div className="bg-black w-full min-h-screen flex flex-col justify-center items-center px-4 py-20 mt-[3rem]">
         <h1 className={`${unbounded.className} text-4xl md:text-6xl text-[#D1A83A] mb-6`}>
           EVENTS
         </h1>
@@ -85,7 +85,7 @@ const EventsPage = () => {
   }
 
   return (
-    <div className="bg-black min-h-screen px-4 py-20">
+    <div className="bg-black min-h-screen px-4 py-20 mt-[3rem]">
       <div className='flex flex-col items-center justify-center'>
         <div className={`${unbounded.className} text-4xl md:text-6xl text-[#D1A83A] mb-12`}>
           EVENTS

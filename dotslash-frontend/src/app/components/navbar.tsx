@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react"; // Icons for mobile menu
 
 import logo from "../assets/navbar_logo.svg"; // Make sure the path is correct
+import Link from "next/link";
 
 const Navbar = () => {
   const [hidden, setHidden] = useState(false);
@@ -67,11 +68,16 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-lg font-medium">
-          <a href="#events" className="hover:underline font-unbounded">Events</a>
-          <a href="#gallery" className="hover:underline font-unbounded">Gallery</a>
-          <button className="bg-black text-[#C49A32] px-10 py-2 rounded-full font-medium font-unbounded hover:opacity-80">
-            <a href="#collaboration">Collaborate</a>
-          </button>
+          <Link href="/#events" className="hover:underline font-unbounded">Events</Link>
+          <Link href="/#gallery" className="hover:underline font-unbounded">Gallery</Link>
+          <Link href="https://forms.gle/27HZHNDRMSY6ydhR7" target="_blank" className="bg-black text-[#C49A32] px-10 py-2 rounded-full font-medium font-unbounded hover:opacity-80 group relative overflow-hidden">
+            <div className="group-hover:-translate-y-11 ease-in-out-expo transition duration-700 ease-[cubic-bezier(0, 0, 0, 1)]">
+              D-Solve
+            </div>
+            <div className="absolute left-0 top-16 group-hover:top-0 transition-all delay-75 duration-700 ease-in-out-expo text-black bg-[#D1A83A] w-full h-full flex items-center justify-center rounded-full border-black border-[2px]">
+              D-Solve
+            </div>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -90,27 +96,27 @@ const Navbar = () => {
               : "opacity-0 -translate-y-4 pointer-events-none"
           }`}
         >
-          <a 
-            href="#events" 
+          <Link
+            href="/#events" 
             className="hover:underline font-unbounded text-lg"
             onClick={() => setMenuOpen(false)}
           >
             Events
-          </a>
-          <a 
-            href="#gallery" 
+          </Link>
+          <Link
+            href="/#gallery" 
             className="hover:underline font-unbounded text-lg"
             onClick={() => setMenuOpen(false)}
           >
             Gallery
-          </a>
-          <a
-            href="#collaboration"
+          </Link>
+          <Link
+            href="https://forms.gle/27HZHNDRMSY6ydhR7"
             className="bg-black text-[#C49A32] px-10 py-2 rounded-full font-medium font-unbounded hover:opacity-80 text-lg"
             onClick={() => setMenuOpen(false)}
           >
-            Collaborate
-          </a>
+            D-Solve
+          </Link>
         </div>
       </div>
     </nav>
