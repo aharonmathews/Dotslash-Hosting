@@ -9,12 +9,11 @@ import NotJustAFest from "./components/NotJustAFest";
 import Navbar from "./components/navbar";
 import Landing from "./components/Landing";
 
+
 export default function Home() {
   return (
     <>
-      <div id="landing" className="flex flex-col w-full gap-10 overflow-hidden bg-black">
-        
-        <Navbar/>
+      <div className="flex flex-col w-full gap-10 overflow-hidden bg-black">
         <Landing />
         <Welcome />
         <Countdown />

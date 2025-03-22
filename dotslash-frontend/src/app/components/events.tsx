@@ -254,7 +254,7 @@ function Events() {
   }
 
   return (
-    <div id="events" className="bg-black w-full flex justify-center relative overflow-hidden">
+    <div id="events" className="bg-black w-full flex justify-center relative overflow-hidden z-[50] mb-20">
       {/* Orbit image positioned absolutely in top right */}
       <div className="absolute -z-100 -top-[38%] -right-[38%] pointer-events-none z-0 opacity-30 md:opacity-100">
         <Orbit />
@@ -311,7 +311,7 @@ function Events() {
         </div>
 
         <div className="flex flex-col justify-center items-center w-full mt-[36px] font-unbounded">
-          <HoverButton url="/events" small={false} text="SHOW MORE" invert={true} />
+          <HoverButton url="/events" small={false} text="SHOW MORE" invert={true}/>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ export default function Tshirt() {
     <div id="tshirt" className="relative z-10 mb-[10rem] md:mb-20 md:w-full inset-0 flex flex-col items-start justify-start text-white">
       <div className="absolute left-1/2 -translate-x-1/2 inset-0 md:w-full w-[600px] h-[800px] bg-cover">
         {/* <ShaderCanvas image="/Tbackground.png" /> */}
-        <Image src="/Tbackground.png" width={100} height={100} alt="TShirt bg image" className="w-full h-full object-cover"/>
+        <Image src="/Tbackground.png" width={1000} height={1000} alt="TShirt bg image" className="w-full h-full object-cover"/>
       </div>
 
       <div className="relative flex md:flex-row flex-col justify-between max-sm:py-0 p-6 h-full w-full pt-12 mt-10 md:mt-10">
