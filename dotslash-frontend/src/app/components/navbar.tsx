@@ -74,7 +74,7 @@ const Navbar = () => {
           <Link href="/#gallery" className="hover:underline font-unbounded">
           Gallery
           </Link>
-          <Link href="/events" target="_blank" className="bg-black text-[#C49A32] px-10 py-2 rounded-full font-medium font-unbounded hover:opacity-80 group relative overflow-hidden">
+          <Link href="/events" className="bg-black text-[#C49A32] px-10 py-2 rounded-full font-medium font-unbounded hover:opacity-80 group relative overflow-hidden">
             <div className="group-hover:-translate-y-11 ease-in-out-expo transition duration-700 ease-[cubic-bezier(0, 0, 0, 1)]">
               Events
             </div>
